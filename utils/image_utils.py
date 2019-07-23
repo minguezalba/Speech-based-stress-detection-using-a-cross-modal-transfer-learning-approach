@@ -26,10 +26,10 @@ class ImageManager:
     values: np.ndarray
 
     @staticmethod
-    def generate_image(self, method, audio_frame, i, filename):
+    def generate_image(method, audio_frame, i, filename, label):
         filename = f'{filename}_{i}.{EXT_IMAGES}'
-        path = f'{DIR_IMAGES}{filename}'
-        data = self._melspectrogram_operation(audio_frame)
+        path = f'{DIR_IMAGES}{method}/{label}/{filename}'
+        data = ImageManager._melspectrogram_operation(audio_frame)
 
         return ImageManager(path, filename, method, data)
 
@@ -48,17 +48,15 @@ class ImageManager:
         x_max, x_min = self.values.max(), self.values.min()
         data_norm = (self.values - x_min) / (x_max - x_min)
 
-        path = f'{DIR_IMAGES}/{label}/{self.filename}.{EXT_IMAGES}'
-
         three_channels_image = None
         if method == 'RGB':
             three_channels_image = Image.fromarray(np.uint8(plt.cm.inferno(data_norm) * 255)).convert('RGB')
-        elif method == 'grayscale':
-            three_channels_image = Image.fromarray(np.stack((data_norm, data_norm, data_norm), axis=2))
+        # elif method == 'greyscale':
+        #     three_channels_image = Image.fromarray(np.stack((data_norm, data_norm, data_norm), axis=2), 'RGB')
         else:
             print('Error: not available saving image method.')
 
-        three_channels_image.save(path)
+        three_channels_image.save(self.path)
 
         if show:
             self.show_image(im=three_channels_image, as_plot=False)

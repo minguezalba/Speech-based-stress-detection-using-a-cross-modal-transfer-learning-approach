@@ -1,6 +1,8 @@
 from dataclasses import dataclass
-import numpy as np
+
 import librosa
+import matplotlib.pyplot as plt
+import numpy as np
 
 DIR_AUDIOS = '../data/processed_audios/'
 
@@ -34,3 +36,12 @@ class AudioManager:
 
         return AudioManager(file_path, file_name, audio_frames, audio_frames.shape[0])
 
+    @staticmethod
+    def show_audio(audio_samples, fs, filename):
+        plt.figure()
+        time_steps = np.arange(len(audio_samples)) * 100.0 / fs  # in miliseconds
+        plt.plot(time_steps, audio_samples)
+        plt.xlabel('Time (ms)')
+        plt.ylabel('Amplitude')
+        plt.title(f'{filename}')
+        plt.show()
