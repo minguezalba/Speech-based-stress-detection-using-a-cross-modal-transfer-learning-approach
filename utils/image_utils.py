@@ -60,6 +60,7 @@ class ImageManager:
             plt.imshow(three_channels_image)
             plt.axis('off')
             plt.savefig(self.path, bbox_inches='tight', pad_inches=0)
+            plt.close()
 
             if show:
                 plt.show()

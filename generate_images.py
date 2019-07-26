@@ -23,7 +23,7 @@ def generate_images(method_image):
         for i, (audio_frame, label) in enumerate(zip(audio_manager.data, labels_manager.data)):
             print(f'\t - Frame {i+1} / {audio_manager.n_frames}', flush=True)
             image_manager = ImageManager.generate_image(method_image, audio_frame, i, f_name, label)
-            image_manager.save_image(method_image, label, show=True)
+            image_manager.save_image(method_image, label, show=False)
             # AudioManager.show_audio(audio_frame, audio_manager.fs, image_manager.filename)
 
 

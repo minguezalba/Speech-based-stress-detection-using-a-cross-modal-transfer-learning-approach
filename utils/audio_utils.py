@@ -45,3 +45,4 @@ class AudioManager:
         plt.ylabel('Amplitude')
         plt.title(f'{filename}')
         plt.show()
+        # plt.close()
