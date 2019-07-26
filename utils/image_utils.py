@@ -48,20 +48,26 @@ class ImageManager:
         x_max, x_min = self.values.max(), self.values.min()
         data_norm = (self.values - x_min) / (x_max - x_min)
 
-        three_channels_image = None
         if method == 'RGB':
             three_channels_image = Image.fromarray(np.uint8(plt.cm.inferno(data_norm) * 255)).convert('RGB')
-        # elif method == 'greyscale':
-        #     three_channels_image = Image.fromarray(np.stack((data_norm, data_norm, data_norm), axis=2), 'RGB')
+            three_channels_image.save(self.path)
+
+            if show:
+                three_channels_image.show()
+
+        elif method == 'greyscale':
+            three_channels_image = np.stack((data_norm, data_norm, data_norm), axis=2)
+            plt.imshow(three_channels_image)
+            plt.axis('off')
+            plt.savefig(self.path, bbox_inches='tight', pad_inches=0)
+
+            if show:
+                plt.show()
+
         else:
             print('Error: not available saving image method.')
 
-        three_channels_image.save(self.path)
-
-        if show:
-            self.show_image(im=three_channels_image, as_plot=False)
-
-    def show_image(self, as_plot=False, im=None):
+    def show_plot(self, as_plot=False, im=None):
 
         if as_plot:
             w, h = plt.figaspect(self.values.shape[0] / self.values.shape[1])
