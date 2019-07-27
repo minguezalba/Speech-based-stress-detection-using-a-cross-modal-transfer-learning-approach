@@ -17,6 +17,9 @@ HOP_LENGTH = int(N_FFT*HOP_COEF)
 F_MIN = 50  # hertz
 F_MAX = SAMPLE_RATE/2
 
+LABEL_NAME = {0: 'neutral',
+              1: 'stress'}
+
 
 @dataclass
 class ImageManager:
@@ -25,13 +28,13 @@ class ImageManager:
     method: str
     values: np.ndarray
 
-    @staticmethod
-    def generate_image(method, audio_frame, i, filename, label):
+    @classmethod
+    def generate_image(cls, method, audio_frame, i, filename, label):
         filename = f'{filename}_{i}.{EXT_IMAGES}'
-        path = f'{DIR_IMAGES}{method}/{label}/{filename}'
+        path = f'{DIR_IMAGES}{method}/{LABEL_NAME[label]}/{filename}'
         data = ImageManager._melspectrogram_operation(audio_frame)
 
-        return ImageManager(path, filename, method, data)
+        return cls(path, filename, method, data)
 
     @staticmethod
     def _melspectrogram_operation(audio_frame):
@@ -42,20 +45,20 @@ class ImageManager:
         mel_spec_db = librosa.amplitude_to_db(mel_spec, ref=np.max)
         return mel_spec_db
 
-    def save_image(self, method, label, show=False):
+    def save_image(self, show=False):
 
-        # Normalization between (0,1) range
+        # Normalization between (0,stress) range
         x_max, x_min = self.values.max(), self.values.min()
         data_norm = (self.values - x_min) / (x_max - x_min)
 
-        if method == 'RGB':
+        if self.method == 'RGB':
             three_channels_image = Image.fromarray(np.uint8(plt.cm.inferno(data_norm) * 255)).convert('RGB')
             three_channels_image.save(self.path)
 
             if show:
                 three_channels_image.show()
 
-        elif method == 'greyscale':
+        elif self.method == 'greyscale':
             three_channels_image = np.stack((data_norm, data_norm, data_norm), axis=2)
             plt.imshow(three_channels_image)
             plt.axis('off')
