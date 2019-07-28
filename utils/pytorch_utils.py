@@ -37,6 +37,7 @@ def check_cuda_available():
 def get_train_test_loader(image_method,
                           random_seed,
                           batch_size=BATCH_SIZE,
+                          valid_size=0.1,
                           test_size=0.1,
                           shuffle=True,
                           show=False,
@@ -92,6 +93,7 @@ def get_train_test_loader(image_method,
         transform=transform
     )
 
+    # split between training and test
     num_samples = len(dataset)
     indices = list(range(num_samples))
     split = int(np.floor(test_size * num_samples))
@@ -101,14 +103,31 @@ def get_train_test_loader(image_method,
         np.random.shuffle(indices)
 
     train_idx, test_idx = indices[split:], indices[:split]
-    # print(f'Train indexes: {train_idx[:10]}')
-    # print(f'Test indexes: {test_idx[:10]}')
+
+    # split between training and validation
+    num_train_samples = len(train_idx)
+    split = int(np.floor(valid_size * num_train_samples))
+
+    train_idx, valid_idx = train_idx[split:], train_idx[:split]
+
+    print('Dataloaders info:')
+    print('# Train samples: {}'.format(len(train_idx)))
+    print(train_idx[:10])
+    print('# Validation samples: {}'.format(len(valid_idx)))
+    print(valid_idx[:10])
+    print('# Test samples: {}'.format(len(test_idx)))
+    print(test_idx[:10])
 
     train_sampler = SubsetRandomSampler(train_idx)
+    valid_sampler = SubsetRandomSampler(valid_idx)
     test_sampler = SubsetRandomSampler(test_idx)
 
     train_loader = torch.utils.data.DataLoader(
         dataset, batch_size=batch_size, sampler=train_sampler,
+        num_workers=num_workers, pin_memory=pin_memory,
+    )
+    valid_loader = torch.utils.data.DataLoader(
+        dataset, batch_size=batch_size, sampler=valid_sampler,
         num_workers=num_workers, pin_memory=pin_memory,
     )
     test_loader = torch.utils.data.DataLoader(
@@ -144,7 +163,7 @@ def get_train_test_loader(image_method,
 
         plt.show()
 
-    return train_loader, test_loader
+    return train_loader, valid_loader, test_loader
 
 
 def vgg16_imagenet_model(train_on_gpu, learning_rate=0.001, verbose=False):
@@ -189,19 +208,21 @@ def vgg16_imagenet_model(train_on_gpu, learning_rate=0.001, verbose=False):
     return vgg16, criterion, optimizer
 
 
-def training(train_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
+def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
 
-    print('Training the model...')
+    valid_loss_min = np.Inf  # track change in validation loss
+    filepath = ''
 
     for epoch in range(1, n_epochs + 1):
 
         # keep track of training and validation loss
         train_loss = 0.0
+        valid_loss = 0.0
 
-        ###################
+        # =====================
         # train the model #
-        ###################
-        # model by default is set to train
+        # =====================
+        vgg16.train()
         for batch_i, (data, target) in enumerate(train_loader):
             # move tensors to GPU if CUDA is available
             if train_on_gpu:
@@ -217,14 +238,79 @@ def training(train_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
             # perform a single optimization step (parameter update)
             optimizer.step()
             # update training loss
-            train_loss += loss.item()
+            train_loss += loss.item() * data.size(0)
 
-            if batch_i % 20 == 19:  # print training loss every specified number of mini-batches
-                print('Epoch %d, Batch %d loss: %.16f' %
-                      (epoch, batch_i + 1, train_loss / 20))
-                train_loss = 0.0
+        # =====================
+        # validate the model #
+        # =====================
+        vgg16.eval()
+        for data, target in valid_loader:
+            # move tensors to GPU if CUDA is available
+            if train_on_gpu:
+                data, target = data.cuda(), target.cuda()
+            # forward pass: compute predicted outputs by passing inputs to the model
+            output = vgg16(data)
+            # calculate the batch loss
+            loss = criterion(output, target)
+            # update average validation loss
+            valid_loss += loss.item() * data.size(0)
 
-    return vgg16, optimizer
+        # calculate average losses
+        train_loss = train_loss / len(train_loader.dataset)
+        valid_loss = valid_loss / len(valid_loader.dataset)
+
+        # print training/validation statistics
+        print()
+        print('Epoch: {} \tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
+            epoch, train_loss, valid_loss))
+
+        # save model if validation loss has decreased
+        if valid_loss <= valid_loss_min:
+            print('Validation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
+                valid_loss_min,
+                valid_loss))
+            filepath = save_model(vgg16)
+            valid_loss_min = valid_loss
+
+    return vgg16, filepath
+
+
+# def training(train_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
+#
+#     print('Training the model...')
+#
+#     for epoch in range(1, n_epochs + 1):
+#
+#         # keep track of training and validation loss
+#         train_loss = 0.0
+#
+#         ###################
+#         # train the model #
+#         ###################
+#         # model by default is set to train
+#         for batch_i, (data, target) in enumerate(train_loader):
+#             # move tensors to GPU if CUDA is available
+#             if train_on_gpu:
+#                 data, target = data.cuda(), target.cuda()
+#             # clear the gradients of all optimized variables
+#             optimizer.zero_grad()
+#             # forward pass: compute predicted outputs by passing inputs to the model
+#             output = vgg16(data)
+#             # calculate the batch loss
+#             loss = criterion(output, target)
+#             # backward pass: compute gradient of the loss with respect to model parameters
+#             loss.backward()
+#             # perform a single optimization step (parameter update)
+#             optimizer.step()
+#             # update training loss
+#             train_loss += loss.item()
+#
+#             if batch_i % 20 == 19:  # print training loss every specified number of mini-batches
+#                 print('Epoch %d, Batch %d loss: %.16f' %
+#                       (epoch, batch_i + 1, train_loss / 20))
+#                 train_loss = 0.0
+#
+#     return vgg16, optimizer
 
 
 def save_model(model, verbose=False):
