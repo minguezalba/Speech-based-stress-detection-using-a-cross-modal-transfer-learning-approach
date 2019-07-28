@@ -1,12 +1,13 @@
-
-import torch
-import numpy as np
 import matplotlib.pyplot as plt
-
-# from utils import plot_images
-from torchvision import datasets
-from torchvision import transforms
+import numpy as np
+import torch
+import torch.nn as nn
+import torch.optim as optim
+from datetime import datetime
 from torch.utils.data.sampler import SubsetRandomSampler
+# from utils import plot_images
+from torchvision import datasets, transforms, models
+
 from utils.image_utils import DIR_IMAGES
 
 LABELS = [
@@ -14,8 +15,11 @@ LABELS = [
     'stress'
 ]
 
-BATCH_SIZE = 20
+BATCH_SIZE = 40
 NUM_WORKERS = 4
+
+DIR_MODELS = 'data/models/'
+EXT_MODELS = '.pth'
 
 
 def check_cuda_available():
@@ -61,6 +65,8 @@ def get_train_test_loader(image_method,
     - test_loader: test set iterator.
     """
 
+    print('Generating dataloaders...')
+
     # Check and transform parameters
     pin_memory = True if cuda else False
 
@@ -95,8 +101,8 @@ def get_train_test_loader(image_method,
         np.random.shuffle(indices)
 
     train_idx, test_idx = indices[split:], indices[:split]
-    print(f'Train indexes: {train_idx[:10]}')
-    print(f'Test indexes: {test_idx[:10]}')
+    # print(f'Train indexes: {train_idx[:10]}')
+    # print(f'Test indexes: {test_idx[:10]}')
 
     train_sampler = SubsetRandomSampler(train_idx)
     test_sampler = SubsetRandomSampler(test_idx)
@@ -113,7 +119,7 @@ def get_train_test_loader(image_method,
     # visualize some images
     if show:
         show_sampler = SubsetRandomSampler(list(range(9)))
-        print('show sampler: ', show_sampler.indices)
+        # print('show sampler: ', show_sampler.indices)
         show_loader = torch.utils.data.DataLoader(
             dataset, batch_size=9, sampler=show_sampler,
             num_workers=num_workers, pin_memory=pin_memory,
@@ -139,3 +145,160 @@ def get_train_test_loader(image_method,
         plt.show()
 
     return train_loader, test_loader
+
+
+def vgg16_imagenet_model(train_on_gpu, learning_rate=0.001, verbose=False):
+
+    print('Defining and adapting the pre-trained model...')
+
+    vgg16 = models.vgg16(pretrained=True)
+    if verbose:
+        print(f'Original VGG16 Model pre-trained on ImageNet:')
+        print(vgg16)
+
+    # Freeze training for all "features" layers
+    for param in vgg16.features.parameters():
+        param.requires_grad = False
+
+    n_inputs = vgg16.classifier[6].in_features
+
+    # add last linear layer (n_inputs -> 2 classes: neutral or stress)
+    # new layers automatically have requires_grad = True
+    last_layer = nn.Linear(n_inputs, len(LABELS))
+
+    vgg16.classifier[6] = last_layer
+
+    # if GPU is available, move the model to GPU
+    if train_on_gpu:
+        vgg16.cuda()
+
+    # check to see that your last layer produces the expected number of outputs
+    # print(vgg16.classifier[6].out_features)
+
+    if verbose:
+        print('-------------------------------------------------')
+        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
+        print(vgg16)
+
+    # specify loss function (categorical cross-entropy)
+    criterion = nn.CrossEntropyLoss()
+
+    # specify optimizer (stochastic gradient descent) and learning rate = 0.001
+    optimizer = optim.SGD(vgg16.classifier.parameters(), lr=learning_rate)
+
+    return vgg16, criterion, optimizer
+
+
+def training(train_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
+
+    print('Training the model...')
+
+    for epoch in range(1, n_epochs + 1):
+
+        # keep track of training and validation loss
+        train_loss = 0.0
+
+        ###################
+        # train the model #
+        ###################
+        # model by default is set to train
+        for batch_i, (data, target) in enumerate(train_loader):
+            # move tensors to GPU if CUDA is available
+            if train_on_gpu:
+                data, target = data.cuda(), target.cuda()
+            # clear the gradients of all optimized variables
+            optimizer.zero_grad()
+            # forward pass: compute predicted outputs by passing inputs to the model
+            output = vgg16(data)
+            # calculate the batch loss
+            loss = criterion(output, target)
+            # backward pass: compute gradient of the loss with respect to model parameters
+            loss.backward()
+            # perform a single optimization step (parameter update)
+            optimizer.step()
+            # update training loss
+            train_loss += loss.item()
+
+            if batch_i % 20 == 19:  # print training loss every specified number of mini-batches
+                print('Epoch %d, Batch %d loss: %.16f' %
+                      (epoch, batch_i + 1, train_loss / 20))
+                train_loss = 0.0
+
+    return vgg16, optimizer
+
+
+def save_model(model, verbose=False):
+
+    print('Saving the model in path:')
+
+    if verbose:
+        # Print model's state_dict
+        print("Model's state_dict:")
+        for param_tensor in model.state_dict():
+            print(param_tensor, "\t", model.state_dict()[param_tensor].size())
+
+    # # Print optimizer's state_dict
+    # print("Optimizer's state_dict:")
+    # for var_name in optimizer.state_dict():
+    #     print(var_name, "\t", optimizer.state_dict()[var_name])
+
+    path_save = DIR_MODELS + datetime.isoformat(datetime.now()) + EXT_MODELS
+    print(path_save)
+    torch.save(model.state_dict(), path_save)
+
+    return path_save
+
+
+def load_model(path_file):
+    vgg16 = models.vgg16()
+    vgg16.load_state_dict(torch.load(path_file))
+    vgg16.eval()
+
+    return vgg16
+
+
+def testing(test_loader, vgg16, criterion, train_on_gpu):
+    test_loss = 0.0
+    n_classes = len(LABELS)
+    class_correct = list(0. for i in range(n_classes))
+    class_total = list(0. for i in range(n_classes))
+
+    vgg16.eval()  # eval mode
+
+    # iterate over test data
+    for data, target in test_loader:
+        # move tensors to GPU if CUDA is available
+        if train_on_gpu:
+            data, target = data.cuda(), target.cuda()
+
+        # forward pass: compute predicted outputs by passing inputs to the model
+        output = vgg16(data)
+        # calculate the batch loss
+        loss = criterion(output, target)
+        # update  test loss
+        test_loss += loss.item() * data.size(0)
+        # convert output probabilities to predicted class
+        _, pred = torch.max(output, 1)
+        # compare predictions to true label
+        correct_tensor = pred.eq(target.data.view_as(pred))
+        correct = np.squeeze(correct_tensor.numpy()) if not train_on_gpu else np.squeeze(correct_tensor.cpu().numpy())
+        # calculate test accuracy for each object class
+        for i in range(len(target)):
+            label = target.data[i]
+            class_correct[label] += correct[i].item()
+            class_total[label] += 1
+
+    # calculate avg test loss
+    test_loss = test_loss / len(test_loader.dataset)
+    print('Test Loss: {:.6f}\n'.format(test_loss))
+
+    for i in range(n_classes):
+        if class_total[i] > 0:
+            print('Test Accuracy of %2s: %2d%% (%2d/%2d)' % (LABELS[i], 100 * class_correct[i] / class_total[i],
+                np.sum(class_correct[i]), np.sum(class_total[i])))
+        else:
+            print('Test Accuracy of %2s: N/A (no training examples)' % (LABELS[i]))
+
+    print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+        100. * np.sum(class_correct) / np.sum(class_total),
+        np.sum(class_correct), np.sum(class_total)))
