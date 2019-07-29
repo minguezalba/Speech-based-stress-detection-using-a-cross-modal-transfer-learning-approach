@@ -34,6 +34,17 @@ def check_cuda_available():
         return True
 
 
+def plot_loss_evolution(train_losses, valid_losses):
+    fig = plt.figure()
+    plt.plot(train_losses, label='train')
+    plt.plot(valid_losses, label='validation')
+    plt.title('Model Loss')
+    plt.ylabel('loss')
+    plt.xlabel('epoch')
+    plt.legend(loc='upper right')
+    plt.show()
+
+
 def get_train_test_loader(image_method,
                           random_seed,
                           batch_size=BATCH_SIZE,
@@ -212,6 +223,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
 
     valid_loss_min = np.Inf  # track change in validation loss
     filepath = ''
+    train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
 
     for epoch in range(1, n_epochs + 1):
 
@@ -257,7 +269,9 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
 
         # calculate average losses
         train_loss = train_loss / len(train_loader.dataset)
+        train_losses[epoch-1] = train_loss
         valid_loss = valid_loss / len(valid_loader.dataset)
+        valid_losses[epoch-1] = valid_loss
 
         # print training/validation statistics
         print()
@@ -272,45 +286,9 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
             filepath = save_model(vgg16)
             valid_loss_min = valid_loss
 
+    plot_loss_evolution(train_losses, valid_losses)
+
     return vgg16, filepath
-
-
-# def training(train_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
-#
-#     print('Training the model...')
-#
-#     for epoch in range(1, n_epochs + 1):
-#
-#         # keep track of training and validation loss
-#         train_loss = 0.0
-#
-#         ###################
-#         # train the model #
-#         ###################
-#         # model by default is set to train
-#         for batch_i, (data, target) in enumerate(train_loader):
-#             # move tensors to GPU if CUDA is available
-#             if train_on_gpu:
-#                 data, target = data.cuda(), target.cuda()
-#             # clear the gradients of all optimized variables
-#             optimizer.zero_grad()
-#             # forward pass: compute predicted outputs by passing inputs to the model
-#             output = vgg16(data)
-#             # calculate the batch loss
-#             loss = criterion(output, target)
-#             # backward pass: compute gradient of the loss with respect to model parameters
-#             loss.backward()
-#             # perform a single optimization step (parameter update)
-#             optimizer.step()
-#             # update training loss
-#             train_loss += loss.item()
-#
-#             if batch_i % 20 == 19:  # print training loss every specified number of mini-batches
-#                 print('Epoch %d, Batch %d loss: %.16f' %
-#                       (epoch, batch_i + 1, train_loss / 20))
-#                 train_loss = 0.0
-#
-#     return vgg16, optimizer
 
 
 def save_model(model, verbose=False):
@@ -328,19 +306,30 @@ def save_model(model, verbose=False):
     # for var_name in optimizer.state_dict():
     #     print(var_name, "\t", optimizer.state_dict()[var_name])
 
-    path_save = DIR_MODELS + datetime.isoformat(datetime.now()) + EXT_MODELS
+    path_save = DIR_MODELS + str(datetime.date(datetime.now())) + EXT_MODELS
     print(path_save)
     torch.save(model.state_dict(), path_save)
 
     return path_save
 
 
-def load_model(path_file):
+def load_model(path_file, train_on_gpu):
     vgg16 = models.vgg16()
-    vgg16.load_state_dict(torch.load(path_file))
-    vgg16.eval()
+    n_inputs = vgg16.classifier[6].in_features
+    last_layer = nn.Linear(n_inputs, len(LABELS))
 
-    return vgg16
+    # specify loss function (categorical cross-entropy)
+    criterion = nn.CrossEntropyLoss()
+
+    vgg16.classifier[6] = last_layer
+
+    if train_on_gpu:
+        vgg16.load_state_dict(torch.load(path_file))
+        vgg16.cuda()
+    else:
+        vgg16.load_state_dict(torch.load(path_file, map_location=lambda storage, loc: storage))
+
+    return vgg16, criterion
 
 
 def testing(test_loader, vgg16, criterion, train_on_gpu):
@@ -352,7 +341,8 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     vgg16.eval()  # eval mode
 
     # iterate over test data
-    for data, target in test_loader:
+    for batch_i, (data, target) in enumerate(test_loader):
+        print('{}/{}'.format(batch_i, len(test_loader)))
         # move tensors to GPU if CUDA is available
         if train_on_gpu:
             data, target = data.cuda(), target.cuda()
