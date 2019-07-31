@@ -4,6 +4,7 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import sys
+import os
 from datetime import datetime
 from torch.utils.data.sampler import SubsetRandomSampler, WeightedRandomSampler
 # from utils import plot_images
@@ -15,6 +16,7 @@ LABELS = [
     'neutral',
     'stress'
 ]
+
 
 BATCH_SIZE = 40
 NUM_WORKERS = 4
@@ -51,7 +53,6 @@ def get_train_test_loader(image_method,
                           random_seed,
                           batch_size=BATCH_SIZE,
                           valid_size=0.1,
-                          test_size=0.1,
                           shuffle=True,
                           show=False,
                           num_workers=NUM_WORKERS,
@@ -85,9 +86,11 @@ def get_train_test_loader(image_method,
     pin_memory = True if cuda else False
 
     data_dir = DIR_IMAGES + image_method + '/'
+    train_dir = os.path.join(data_dir, 'train/')
+    test_dir = os.path.join(data_dir, 'test/')
 
     error_msg = "[!] valid_size should be in the range [0, 1]."
-    assert ((test_size >= 0) and (test_size <= 1)), error_msg
+    assert ((valid_size >= 0) and (valid_size <= 1)), error_msg
 
     # VGG16 pytorch model normalization
     normalize = transforms.Normalize(mean=[0.485, 0.456, 0.406],
@@ -101,60 +104,52 @@ def get_train_test_loader(image_method,
     ])
 
     # load the dataset
-    dataset = datasets.ImageFolder(
-        root=data_dir,
-        transform=transform
-    )
+    train_data = datasets.ImageFolder(train_dir, transform=transform)
+    test_data = datasets.ImageFolder(test_dir, transform=transform)
+
+    # print out some data stats
+    print('Num training images: ', len(train_data))
+    print('Num test images: ', len(test_data))
 
     # split between training and test
-    num_samples = len(dataset)
+    num_samples = len(train_data)
     indices = list(range(num_samples))
-    split = int(np.floor(test_size * num_samples))
+    split = int(np.floor(valid_size * num_samples))
 
     if shuffle:
         np.random.seed(random_seed)
         np.random.shuffle(indices)
 
-    train_idx, test_idx = indices[split:], indices[:split]
-
-    # split between training and validation
-    num_train_samples = len(train_idx)
-    split = int(np.floor(valid_size * num_train_samples))
-
-    train_idx, valid_idx = train_idx[split:], train_idx[:split]
+    train_idx, valid_idx = indices[split:], indices[:split]
 
     print('Dataloaders info:')
     print('# Train samples: {}'.format(len(train_idx)))
     print(train_idx[:10])
     print('# Validation samples: {}'.format(len(valid_idx)))
     print(valid_idx[:10])
-    print('# Test samples: {}'.format(len(test_idx)))
-    print(test_idx[:10])
+    print('# Test samples: {}'.format(len(test_data)))
 
     train_sampler = SubsetRandomSampler(train_idx)
     valid_sampler = SubsetRandomSampler(valid_idx)
-    test_sampler = SubsetRandomSampler(test_idx)
 
     train_loader = torch.utils.data.DataLoader(
-        dataset, batch_size=batch_size, sampler=train_sampler,
+        train_data, batch_size=batch_size, sampler=train_sampler,
         num_workers=num_workers, pin_memory=pin_memory,
     )
     valid_loader = torch.utils.data.DataLoader(
-        dataset, batch_size=batch_size, sampler=valid_sampler,
+        train_data, batch_size=batch_size, sampler=valid_sampler,
         num_workers=num_workers, pin_memory=pin_memory,
     )
     test_loader = torch.utils.data.DataLoader(
-        dataset, batch_size=batch_size, sampler=test_sampler,
-        num_workers=num_workers, pin_memory=pin_memory,
+        test_data, batch_size=batch_size, num_workers=num_workers, pin_memory=pin_memory,
     )
-
 
     # visualize some images
     if show:
         show_sampler = SubsetRandomSampler(list(range(9)))
         # print('show sampler: ', show_sampler.indices)
         show_loader = torch.utils.data.DataLoader(
-            dataset, batch_size=9, sampler=show_sampler,
+            train_data, batch_size=9, sampler=show_sampler,
             num_workers=num_workers, pin_memory=pin_memory,
         )
 
@@ -192,7 +187,7 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=30, learning_rate=0.001, verb
             print(vgg16)
 
         # Freeze training for all "features" layers
-        print('Length features: ', len(vgg16.features))
+        # print('Length features: ', len(vgg16.features))
         for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
             for param in feature_layer.parameters():
                 param.requires_grad = False
