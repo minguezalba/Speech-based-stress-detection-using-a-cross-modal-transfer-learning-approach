@@ -5,7 +5,7 @@ import torch.nn as nn
 import torch.optim as optim
 import sys
 from datetime import datetime
-from torch.utils.data.sampler import SubsetRandomSampler
+from torch.utils.data.sampler import SubsetRandomSampler, WeightedRandomSampler
 # from utils import plot_images
 from torchvision import datasets, transforms, models
 
@@ -147,6 +147,7 @@ def get_train_test_loader(image_method,
         dataset, batch_size=batch_size, sampler=test_sampler,
         num_workers=num_workers, pin_memory=pin_memory,
     )
+
 
     # visualize some images
     if show:
