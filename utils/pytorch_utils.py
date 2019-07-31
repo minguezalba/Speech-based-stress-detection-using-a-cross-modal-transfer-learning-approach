@@ -3,6 +3,7 @@ import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
+import sys
 from datetime import datetime
 from torch.utils.data.sampler import SubsetRandomSampler
 # from utils import plot_images
@@ -178,46 +179,54 @@ def get_train_test_loader(image_method,
     return train_loader, valid_loader, test_loader
 
 
-def vgg16_imagenet_model(train_on_gpu, learning_rate=0.001, verbose=False):
+def vgg16_imagenet_model(train_on_gpu, until_layer=30, learning_rate=0.001, verbose=False):
 
-    print('Defining and adapting the pre-trained model...')
+    if until_layer < 31:
 
-    vgg16 = models.vgg16(pretrained=True)
-    if verbose:
-        print(f'Original VGG16 Model pre-trained on ImageNet:')
-        print(vgg16)
+        print('Defining and adapting the pre-trained model...')
 
-    # Freeze training for all "features" layers
-    for param in vgg16.features.parameters():
-        param.requires_grad = False
+        vgg16 = models.vgg16(pretrained=True)
+        if verbose:
+            print(f'Original VGG16 Model pre-trained on ImageNet:')
+            print(vgg16)
 
-    n_inputs = vgg16.classifier[6].in_features
+        # Freeze training for all "features" layers
+        print('Length features: ', len(vgg16.features))
+        for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
+            for param in feature_layer.parameters():
+                param.requires_grad = False
 
-    # add last linear layer (n_inputs -> 2 classes: neutral or stress)
-    # new layers automatically have requires_grad = True
-    last_layer = nn.Linear(n_inputs, len(LABELS))
+        n_inputs = vgg16.classifier[6].in_features
 
-    vgg16.classifier[6] = last_layer
+        # add last linear layer (n_inputs -> 2 classes: neutral or stress)
+        # new layers automatically have requires_grad = True
+        last_layer = nn.Linear(n_inputs, len(LABELS))
 
-    # if GPU is available, move the model to GPU
-    if train_on_gpu:
-        vgg16.cuda()
+        vgg16.classifier[6] = last_layer
 
-    # check to see that your last layer produces the expected number of outputs
-    # print(vgg16.classifier[6].out_features)
+        # if GPU is available, move the model to GPU
+        if train_on_gpu:
+            vgg16.cuda()
 
-    if verbose:
-        print('-------------------------------------------------')
-        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
-        print(vgg16)
+        # check to see that your last layer produces the expected number of outputs
+        # print(vgg16.classifier[6].out_features)
 
-    # specify loss function (categorical cross-entropy)
-    criterion = nn.CrossEntropyLoss()
+        if verbose:
+            print('-------------------------------------------------')
+            print(f'Adapted VGG16 Model pre-trained on ImageNet:')
+            print(vgg16)
 
-    # specify optimizer (stochastic gradient descent) and learning rate = 0.001
-    optimizer = optim.SGD(vgg16.classifier.parameters(), lr=learning_rate)
+        # specify loss function (categorical cross-entropy)
+        criterion = nn.CrossEntropyLoss()
 
-    return vgg16, criterion, optimizer
+        # specify optimizer (stochastic gradient descent) and learning rate = 0.001
+        optimizer = optim.SGD(vgg16.classifier.parameters(), lr=learning_rate)
+
+        return vgg16, criterion, optimizer
+
+    else:
+        print('Error! Until layer parameter must be from 0 to 30.')
+        sys.exit()
 
 
 def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
