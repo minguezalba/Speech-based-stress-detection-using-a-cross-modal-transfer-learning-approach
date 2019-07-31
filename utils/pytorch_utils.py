@@ -36,8 +36,9 @@ def check_cuda_available():
 
 def plot_loss_evolution(train_losses, valid_losses):
     fig = plt.figure()
-    plt.plot(train_losses, label='train')
-    plt.plot(valid_losses, label='validation')
+    x_range = np.arange(1, len(train_losses)+1)
+    plt.plot(x_range, train_losses, label='train')
+    plt.plot(x_range, valid_losses, label='validation')
     plt.title('Model Loss')
     plt.ylabel('loss')
     plt.xlabel('epoch')
@@ -225,6 +226,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     filepath = ''
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
 
+    print('Starting training and validation step...')
     for epoch in range(1, n_epochs + 1):
 
         # keep track of training and validation loss
