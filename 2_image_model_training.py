@@ -13,10 +13,10 @@ def main(image_method):
                                                                     show=False,
                                                                     cuda=use_gpu)
 
-    until_layer = 14  # Layers from 0 to 30
+    until_layer = 30  # Layers from 0 to 30
     vgg16, criterion, optimizer = vgg16_imagenet_model(use_gpu, until_layer, learning_rate=0.001, verbose=False)
 
-    n_epochs = 300
+    n_epochs = 60
     vgg16, filepath = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu)
 
 

@@ -9,7 +9,6 @@ def main(image_method, filepath):
 
     train_loader, valid_loader, test_loader = get_train_test_loader(image_method,
                                                                     valid_size=0.2,
-                                                                    test_size=0.2,
                                                                     random_seed=42,
                                                                     show=False,
                                                                     cuda=use_gpu)
@@ -24,7 +23,7 @@ if __name__ == '__main__':
     start = time.time()
 
     image_method_ = 'RGB'
-    filepath_ = 'data/models/2019-07-29.pth'
+    filepath_ = 'data/models/2019-08-01.pth'
     main(image_method_, filepath_)
 
     end = time.time()

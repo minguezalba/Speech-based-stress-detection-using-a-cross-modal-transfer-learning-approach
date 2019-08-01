@@ -188,6 +188,7 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=30, learning_rate=0.001, verb
 
         # Freeze training for all "features" layers
         # print('Length features: ', len(vgg16.features))
+        print(f'Freezing until layer {until_layer}')
         for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
             for param in feature_layer.parameters():
                 param.requires_grad = False
@@ -232,6 +233,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
 
     print('Starting training and validation step...')
+    print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
 
         # keep track of training and validation loss
