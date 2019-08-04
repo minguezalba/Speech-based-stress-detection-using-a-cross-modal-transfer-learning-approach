@@ -21,22 +21,34 @@ if __name__ == '__main__':
 
     start = time.time()
 
-    image_method_ = 'RGB/balanced/'
-    until_layer_ = 2   # Layers from 0 to 30
-    n_epochs_ = 100
-    batch_size_ = 20
-    use_gpu = check_cuda_available()
-    # use_gpu = False
+    # image_method_ = 'RGB/balanced/'
+    # until_layer_ = 14   # Layers from 0 to 30
+    # n_epochs_ = 100
+    # batch_size_ = 100
+
+    import argparse
+
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--dir', dest='image_method', help='Source folder of images to train.')
+    parser.add_argument('--until_layer', dest='until_layer', help='Until which layer to freeze weights.')
+    parser.add_argument('--n_epochs', dest='n_epochs', help='Number of epochs.')
+    parser.add_argument('--batch_size', dest='batch_size', help='Batch size')
+    parser.add_argument('--use_gpu', action='store_true', dest='use_gpu', help='Using GPU')
+
+    args = parser.parse_args()
+    if not args.use_gpu:
+        use_gpu = check_cuda_available()
+        args.use_gpu = use_gpu
 
     print('================================================')
-    print(f'Source folder images: {image_method_}')
-    print(f'Freezing until layer: {until_layer_}')
-    print(f'Number of epochs: {n_epochs_}')
-    print(f'Batch size: {batch_size_}')
-    print(f'Training on GPU: {use_gpu}')
+    print(f'Source folder images: {args.image_method}')
+    print(f'Freezing until layer: {args.until_layer}')
+    print(f'Number of epochs: {args.n_epochs}')
+    print(f'Batch size: {args.batch_size}')
+    print(f'Training on GPU: {args.use_gpu}')
     print('================================================')
 
-    main(image_method_, until_layer_, n_epochs_, batch_size_, use_gpu)
+    main(args.image_method, int(args.until_layer), int(args.n_epochs), int(args.batch_size), args.use_gpu)
 
     end = time.time()
     hours, rem = divmod(end - start, 3600)
