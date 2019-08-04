@@ -14,6 +14,7 @@ pillow = "*"
 torchvision = "*"
 torch = "==1.1.0"
 sklearn = "*"
+imbalanced-learn = "*"
 
 [requires]
 python_version = "3.7"
