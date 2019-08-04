@@ -4,6 +4,7 @@ from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg
 
 
 def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
+    start = time.time()
 
     train_loader, valid_loader, test_loader = get_train_test_loader(image_method,
                                                                     batch_size=batch_size,
@@ -16,6 +17,12 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
 
     vgg16, filepath = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu)
 
+    end = time.time()
+    hours, rem = divmod(end - start, 3600)
+    minutes, seconds = divmod(rem, 60)
+    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
+    start = time.time()
     vgg16, criterion = load_model(filepath, train_on_gpu=False, verbose=False)
 
     total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
@@ -28,16 +35,15 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
     print(f'Recall: {recall}')
     print(f'F score: {f_score}')
 
+    end = time.time()
+    hours, rem = divmod(end - start, 3600)
+    minutes, seconds = divmod(rem, 60)
+    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
 
 if __name__ == '__main__':
 
-    start = time.time()
-
-    # image_method_ = 'RGB/balanced/'
-    # until_layer_ = 14   # Layers from 0 to 30
-    # n_epochs_ = 100
-    # batch_size_ = 100
-
+    # Local import to save time
     import argparse
 
     parser = argparse.ArgumentParser()
@@ -65,8 +71,3 @@ if __name__ == '__main__':
     print('================================================')
 
     main(args.image_method, args.until_layer, int(args.n_epochs), int(args.batch_size), args.use_gpu)
-
-    end = time.time()
-    hours, rem = divmod(end - start, 3600)
-    minutes, seconds = divmod(rem, 60)
-    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
