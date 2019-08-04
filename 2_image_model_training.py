@@ -1,4 +1,5 @@
 import time
+from sklearn.metrics import f1_score, precision_score, recall_score
 from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg16_imagenet_model, training_validation, load_model, testing
 
 
@@ -15,9 +16,17 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
 
     vgg16, filepath = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu)
 
-    vgg16, criterion = load_model(filepath, False)
+    vgg16, criterion = load_model(filepath, train_on_gpu=False, verbose=False)
 
-    testing(test_loader, vgg16, criterion, False)
+    total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
+
+    f_score = f1_score(total_true_labels, total_est_labels)
+    precision = precision_score(total_true_labels, total_est_labels)
+    recall = recall_score(total_true_labels, total_est_labels)
+
+    print(f'Precision: {precision}')
+    print(f'Recall: {recall}')
+    print(f'F score: {f_score}')
 
 
 if __name__ == '__main__':

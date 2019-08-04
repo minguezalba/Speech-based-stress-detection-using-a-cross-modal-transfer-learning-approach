@@ -337,6 +337,9 @@ def load_model(path_file, train_on_gpu, verbose):
 
 
 def testing(test_loader, vgg16, criterion, train_on_gpu):
+    print('====================================================')
+    print('Testing started')
+    print('====================================================')
     test_loss = 0.0
     n_classes = len(LABELS)
     class_correct = list(0. for i in range(n_classes))
