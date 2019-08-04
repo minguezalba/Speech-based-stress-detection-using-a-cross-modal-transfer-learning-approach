@@ -230,10 +230,12 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     valid_loss_min = np.Inf  # track change in validation loss
     filepath = ''
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
+    file_save = datetime.isoformat(datetime.now())
 
     print('Starting training and validation step...')
     print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
+        print()
         print(f'Epoch {epoch} - {datetime.isoformat(datetime.now())}')
         # keep track of training and validation loss
         train_loss = 0.0
@@ -282,7 +284,6 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
         valid_losses[epoch-1] = valid_loss
 
         # print training/validation statistics
-        print()
         print('Epoch: {} \tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
             epoch, train_loss, valid_loss))
 
@@ -291,7 +292,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
             print('Validation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
                 valid_loss_min,
                 valid_loss))
-            filepath = save_model(vgg16)
+            filepath = save_model(file_save, vgg16)
             valid_loss_min = valid_loss
 
     plot_loss_evolution(train_losses, valid_losses)
@@ -299,7 +300,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     return vgg16, filepath
 
 
-def save_model(model, verbose=False):
+def save_model(file_save, model, verbose=False):
 
     print('Saving the model in path:')
 
@@ -309,12 +310,7 @@ def save_model(model, verbose=False):
         for param_tensor in model.state_dict():
             print(param_tensor, "\t", model.state_dict()[param_tensor].size())
 
-    # # Print optimizer's state_dict
-    # print("Optimizer's state_dict:")
-    # for var_name in optimizer.state_dict():
-    #     print(var_name, "\t", optimizer.state_dict()[var_name])
-
-    path_save = DIR_MODELS + datetime.isoformat(datetime.now()) + EXT_MODELS
+    path_save = DIR_MODELS + file_save + EXT_MODELS
     print(path_save)
     torch.save(model.state_dict(), path_save)
 

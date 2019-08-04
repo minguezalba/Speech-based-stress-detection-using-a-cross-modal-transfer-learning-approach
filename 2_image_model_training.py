@@ -1,5 +1,4 @@
 import time
-
 from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg16_imagenet_model, training_validation
 
 
@@ -40,6 +39,10 @@ if __name__ == '__main__':
         use_gpu = check_cuda_available()
         args.use_gpu = use_gpu
 
+    args.until_layer = int(args.until_layer)
+    if args.until_layer == -1:
+        args.until_layer = None
+
     print('================================================')
     print(f'Source folder images: {args.image_method}')
     print(f'Freezing until layer: {args.until_layer}')
@@ -48,7 +51,7 @@ if __name__ == '__main__':
     print(f'Training on GPU: {args.use_gpu}')
     print('================================================')
 
-    main(args.image_method, int(args.until_layer), int(args.n_epochs), int(args.batch_size), args.use_gpu)
+    main(args.image_method, args.until_layer, int(args.n_epochs), int(args.batch_size), args.use_gpu)
 
     end = time.time()
     hours, rem = divmod(end - start, 3600)
