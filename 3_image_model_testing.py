@@ -22,8 +22,8 @@ if __name__ == '__main__':
 
     start = time.time()
 
-    image_method_ = 'RGB'
-    filepath_ = 'data/models/2019-08-01.pth'
+    image_method_ = 'RGB/balanced/'
+    filepath_ = 'data/models/2019-08-04T15:58:47.369267.pth'
     main(image_method_, filepath_)
 
     end = time.time()

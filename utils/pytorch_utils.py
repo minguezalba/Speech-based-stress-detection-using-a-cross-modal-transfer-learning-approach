@@ -179,14 +179,32 @@ def get_train_test_loader(image_method,
     return train_loader, valid_loader, test_loader
 
 
+def modify_architecture(model, verbose):
+    if verbose:
+        print(f'Original VGG16 Model pre-trained on ImageNet:')
+        print(model)
+
+    n_inputs = model.classifier[6].in_features
+
+    # add last linear layer (n_inputs -> 2 classes: neutral or stress)
+    # new layers automatically have requires_grad = True
+    last_layer = nn.Linear(n_inputs, len(LABELS))
+
+    model.classifier[6] = last_layer
+
+    if verbose:
+        print('-------------------------------------------------')
+        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
+        print(model)
+
+    return model
+
+
 def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, verbose=False):
 
     print('Defining and adapting the pre-trained model...')
 
     vgg16 = models.vgg16(pretrained=True)
-    if verbose:
-        print(f'Original VGG16 Model pre-trained on ImageNet:')
-        print(vgg16)
 
     if until_layer:
         print(f'Freezing until layer {until_layer}')
@@ -196,25 +214,11 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, ve
     else:
         print('Using whole pre-trained model as weights initialization...')
 
-    n_inputs = vgg16.classifier[6].in_features
-
-    # add last linear layer (n_inputs -> 2 classes: neutral or stress)
-    # new layers automatically have requires_grad = True
-    last_layer = nn.Linear(n_inputs, len(LABELS))
-
-    vgg16.classifier[6] = last_layer
+    vgg16 = modify_architecture(vgg16, verbose)
 
     # if GPU is available, move the model to GPU
     if train_on_gpu:
         vgg16.cuda()
-
-    # check to see that your last layer produces the expected number of outputs
-    # print(vgg16.classifier[6].out_features)
-
-    if verbose:
-        print('-------------------------------------------------')
-        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
-        print(vgg16)
 
     # specify loss function (categorical cross-entropy)
     criterion = nn.CrossEntropyLoss()
@@ -284,8 +288,8 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
         valid_losses[epoch-1] = valid_loss
 
         # print training/validation statistics
-        print('Epoch: {} \tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
-            epoch, train_loss, valid_loss))
+        print('\tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
+            train_loss, valid_loss))
 
         # save model if validation loss has decreased
         if valid_loss <= valid_loss_min:
@@ -317,15 +321,11 @@ def save_model(file_save, model, verbose=False):
     return path_save
 
 
-def load_model(path_file, train_on_gpu):
+def load_model(path_file, train_on_gpu, verbose):
     vgg16 = models.vgg16()
-    n_inputs = vgg16.classifier[6].in_features
-    last_layer = nn.Linear(n_inputs, len(LABELS))
+    vgg16 = modify_architecture(vgg16, verbose)
 
-    # specify loss function (categorical cross-entropy)
     criterion = nn.CrossEntropyLoss()
-
-    vgg16.classifier[6] = last_layer
 
     if train_on_gpu:
         vgg16.load_state_dict(torch.load(path_file))

@@ -1,5 +1,5 @@
 import time
-from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg16_imagenet_model, training_validation
+from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg16_imagenet_model, training_validation, load_model, testing
 
 
 def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
@@ -14,6 +14,10 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
     vgg16, criterion, optimizer = vgg16_imagenet_model(use_gpu, until_layer, learning_rate=0.001, verbose=False)
 
     vgg16, filepath = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu)
+
+    vgg16, criterion = load_model(filepath, False)
+
+    testing(test_loader, vgg16, criterion, False)
 
 
 if __name__ == '__main__':
