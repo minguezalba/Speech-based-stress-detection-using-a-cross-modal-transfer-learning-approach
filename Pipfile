@@ -13,6 +13,7 @@ pandas = "*"
 pillow = "*"
 torchvision = "*"
 torch = "==1.1.0"
+sklearn = "*"
 
 [requires]
 python_version = "3.7"
