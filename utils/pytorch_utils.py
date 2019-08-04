@@ -1,12 +1,12 @@
+import os
+from datetime import datetime
+
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import sys
-import os
-from datetime import datetime
-from torch.utils.data.sampler import SubsetRandomSampler, WeightedRandomSampler
+from torch.utils.data.sampler import SubsetRandomSampler
 # from utils import plot_images
 from torchvision import datasets, transforms, models
 
@@ -30,10 +30,10 @@ def check_cuda_available():
     train_on_gpu = torch.cuda.is_available()
 
     if not train_on_gpu:
-        print('CUDA is not available.  Training on CPU ...')
+        # print('CUDA is not available.  Training on CPU ...')
         return False
     else:
-        print('CUDA is available!  Training on GPU ...')
+        # print('CUDA is available!  Training on GPU ...')
         return True
 
 
@@ -80,12 +80,10 @@ def get_train_test_loader(image_method,
     - test_loader: test set iterator.
     """
 
-    print('Generating dataloaders...')
-
     # Check and transform parameters
     pin_memory = True if cuda else False
 
-    data_dir = DIR_IMAGES + image_method + '/'
+    data_dir = DIR_IMAGES + image_method
     train_dir = os.path.join(data_dir, 'train/')
     test_dir = os.path.join(data_dir, 'test/')
 
@@ -107,10 +105,6 @@ def get_train_test_loader(image_method,
     train_data = datasets.ImageFolder(train_dir, transform=transform)
     test_data = datasets.ImageFolder(test_dir, transform=transform)
 
-    # print out some data stats
-    print('Num training images: ', len(train_data))
-    print('Num test images: ', len(test_data))
-
     # split between training and test
     num_samples = len(train_data)
     indices = list(range(num_samples))
@@ -121,13 +115,6 @@ def get_train_test_loader(image_method,
         np.random.shuffle(indices)
 
     train_idx, valid_idx = indices[split:], indices[:split]
-
-    print('Dataloaders info:')
-    print('# Train samples: {}'.format(len(train_idx)))
-    print(train_idx[:10])
-    print('# Validation samples: {}'.format(len(valid_idx)))
-    print(valid_idx[:10])
-    print('# Test samples: {}'.format(len(test_data)))
 
     train_sampler = SubsetRandomSampler(train_idx)
     valid_sampler = SubsetRandomSampler(valid_idx)
@@ -144,6 +131,23 @@ def get_train_test_loader(image_method,
         test_data, batch_size=batch_size, num_workers=num_workers, pin_memory=pin_memory,
     )
 
+    for name_set, subset in zip(['Train', 'Validation', 'Test'], [train_loader, valid_loader, test_loader]):
+
+        if name_set == 'Train':
+            labels = [train_loader.dataset.targets[i] for i in train_idx]
+        elif name_set == 'Validation':
+            labels = [train_loader.dataset.targets[i] for i in valid_idx]
+        else:
+            labels = subset.dataset.targets
+
+        labels = np.array(labels, dtype=int)
+        print(f'{name_set}: {len(labels)} samples')
+        print('\tStress: {} ({:.2f}%)'.format(np.sum(labels == 1),
+                                              np.sum(labels == 1) * 100 / len(labels)))
+        print('\tNeutral: {} ({:.2f}%)'.format(np.sum(labels == 0),
+                                               np.sum(labels == 0) * 100 / len(labels)))
+
+    print('================================================')
     # visualize some images
     if show:
         show_sampler = SubsetRandomSampler(list(range(9)))
@@ -175,55 +179,50 @@ def get_train_test_loader(image_method,
     return train_loader, valid_loader, test_loader
 
 
-def vgg16_imagenet_model(train_on_gpu, until_layer=30, learning_rate=0.001, verbose=False):
+def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, verbose=False):
 
-    if until_layer < 31:
+    print('Defining and adapting the pre-trained model...')
 
-        print('Defining and adapting the pre-trained model...')
+    vgg16 = models.vgg16(pretrained=True)
+    if verbose:
+        print(f'Original VGG16 Model pre-trained on ImageNet:')
+        print(vgg16)
 
-        vgg16 = models.vgg16(pretrained=True)
-        if verbose:
-            print(f'Original VGG16 Model pre-trained on ImageNet:')
-            print(vgg16)
-
-        # Freeze training for all "features" layers
-        # print('Length features: ', len(vgg16.features))
+    if until_layer:
         print(f'Freezing until layer {until_layer}')
         for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
             for param in feature_layer.parameters():
                 param.requires_grad = False
-
-        n_inputs = vgg16.classifier[6].in_features
-
-        # add last linear layer (n_inputs -> 2 classes: neutral or stress)
-        # new layers automatically have requires_grad = True
-        last_layer = nn.Linear(n_inputs, len(LABELS))
-
-        vgg16.classifier[6] = last_layer
-
-        # if GPU is available, move the model to GPU
-        if train_on_gpu:
-            vgg16.cuda()
-
-        # check to see that your last layer produces the expected number of outputs
-        # print(vgg16.classifier[6].out_features)
-
-        if verbose:
-            print('-------------------------------------------------')
-            print(f'Adapted VGG16 Model pre-trained on ImageNet:')
-            print(vgg16)
-
-        # specify loss function (categorical cross-entropy)
-        criterion = nn.CrossEntropyLoss()
-
-        # specify optimizer (stochastic gradient descent) and learning rate = 0.001
-        optimizer = optim.SGD(vgg16.classifier.parameters(), lr=learning_rate)
-
-        return vgg16, criterion, optimizer
-
     else:
-        print('Error! Until layer parameter must be from 0 to 30.')
-        sys.exit()
+        print('Using whole pre-trained model as weights initialization...')
+
+    n_inputs = vgg16.classifier[6].in_features
+
+    # add last linear layer (n_inputs -> 2 classes: neutral or stress)
+    # new layers automatically have requires_grad = True
+    last_layer = nn.Linear(n_inputs, len(LABELS))
+
+    vgg16.classifier[6] = last_layer
+
+    # if GPU is available, move the model to GPU
+    if train_on_gpu:
+        vgg16.cuda()
+
+    # check to see that your last layer produces the expected number of outputs
+    # print(vgg16.classifier[6].out_features)
+
+    if verbose:
+        print('-------------------------------------------------')
+        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
+        print(vgg16)
+
+    # specify loss function (categorical cross-entropy)
+    criterion = nn.CrossEntropyLoss()
+
+    # specify optimizer (stochastic gradient descent) and learning rate = 0.001
+    optimizer = optim.SGD(vgg16.classifier.parameters(), lr=learning_rate)
+
+    return vgg16, criterion, optimizer
 
 
 def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
@@ -235,7 +234,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     print('Starting training and validation step...')
     print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
-
+        print(f'Epoch {epoch} - {datetime.isoformat(datetime.now())}')
         # keep track of training and validation loss
         train_loss = 0.0
         valid_loss = 0.0
@@ -315,7 +314,7 @@ def save_model(model, verbose=False):
     # for var_name in optimizer.state_dict():
     #     print(var_name, "\t", optimizer.state_dict()[var_name])
 
-    path_save = DIR_MODELS + str(datetime.date(datetime.now())) + EXT_MODELS
+    path_save = DIR_MODELS + datetime.isoformat(datetime.now()) + EXT_MODELS
     print(path_save)
     torch.save(model.state_dict(), path_save)
 
