@@ -341,11 +341,14 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     n_classes = len(LABELS)
     class_correct = list(0. for i in range(n_classes))
     class_total = list(0. for i in range(n_classes))
+    total_true_labels = np.array([])
+    total_est_labels = np.array([])
 
     vgg16.eval()  # eval mode
 
     # iterate over test data
     for batch_i, (data, target) in enumerate(test_loader):
+
         print('{}/{}'.format(batch_i, len(test_loader)))
         # move tensors to GPU if CUDA is available
         if train_on_gpu:
@@ -358,10 +361,21 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
         # update  test loss
         test_loss += loss.item() * data.size(0)
         # convert output probabilities to predicted class
+        # _ would be the max value of the output vector, that is, the max value of probability
+        # pred is the index of the max value of the probability, in this case would be the predicted class, 0 or 1,
+        # along columns
         _, pred = torch.max(output, 1)
+        pred_np = np.squeeze(pred.numpy()) if not train_on_gpu else np.squeeze(pred.cpu().numpy())
+        total_est_labels = np.concatenate([total_est_labels, pred_np]) if total_est_labels.size else pred_np
+
         # compare predictions to true label
-        correct_tensor = pred.eq(target.data.view_as(pred))
+        true_labels_tensor = target.data.view_as(pred)
+        true_labels_np = np.squeeze(true_labels_tensor.numpy()) if not train_on_gpu else np.squeeze(true_labels_tensor.cpu().numpy())
+        total_true_labels = np.concatenate([total_true_labels, true_labels_np]) if total_true_labels.size else true_labels_np
+
+        correct_tensor = pred.eq(true_labels_tensor)
         correct = np.squeeze(correct_tensor.numpy()) if not train_on_gpu else np.squeeze(correct_tensor.cpu().numpy())
+
         # calculate test accuracy for each object class
         for i in range(len(target)):
             label = target.data[i]
@@ -382,3 +396,5 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
         100. * np.sum(class_correct) / np.sum(class_total),
         np.sum(class_correct), np.sum(class_total)))
+
+    return total_true_labels, total_est_labels
