@@ -20,25 +20,8 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
-    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
-
-    start = time.time()
-    vgg16, criterion = load_model(filepath, train_on_gpu=False, verbose=False)
-
-    total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
-
-    f_score = f1_score(total_true_labels, total_est_labels)
-    precision = precision_score(total_true_labels, total_est_labels)
-    recall = recall_score(total_true_labels, total_est_labels)
-
-    print(f'Precision: {precision}')
-    print(f'Recall: {recall}')
-    print(f'F score: {f_score}')
-
-    end = time.time()
-    hours, rem = divmod(end - start, 3600)
-    minutes, seconds = divmod(rem, 60)
-    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+    print()
+    print("Training elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 
 
 if __name__ == '__main__':

@@ -21,21 +21,22 @@ def main(image_method, filepath):
     precision = precision_score(total_true_labels, total_est_labels)
     recall = recall_score(total_true_labels, total_est_labels)
 
-    print(f'Precision: {precision}')
-    print(f'Recall: {recall}')
-    print(f'F score: {f_score}')
+    print(f'Precision: {precision:.2f}')
+    print(f'Recall: {recall:.2f}')
+    print(f'F-Score: {f_score:.2f}')
 
 
 if __name__ == '__main__':
 
     start = time.time()
 
-    image_method_ = 'RGB/balanced/'
-    filepath_ = 'data/models/2019-08-04T15_58_47.369267.pth'
+    image_method_ = 'RGB/oversampling/'
+    filepath_ = 'data/models/2019-08-04T22:20:40.699590.pth'
     main(image_method_, filepath_)
 
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
-    print("{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+    print()
+    print("Test elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
 

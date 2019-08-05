@@ -86,6 +86,7 @@ def get_train_test_loader(image_method,
     data_dir = DIR_IMAGES + image_method
     train_dir = os.path.join(data_dir, 'train/')
     test_dir = os.path.join(data_dir, 'test/')
+    val_dir = os.path.join(data_dir, 'validation/')
 
     error_msg = "[!] valid_size should be in the range [0, 1]."
     assert ((valid_size >= 0) and (valid_size <= 1)), error_msg
@@ -103,28 +104,15 @@ def get_train_test_loader(image_method,
 
     # load the dataset
     train_data = datasets.ImageFolder(train_dir, transform=transform)
+    val_data = datasets.ImageFolder(val_dir, transform=transform)
     test_data = datasets.ImageFolder(test_dir, transform=transform)
 
-    # split between training and test
-    num_samples = len(train_data)
-    indices = list(range(num_samples))
-    split = int(np.floor(valid_size * num_samples))
-
-    if shuffle:
-        np.random.seed(random_seed)
-        np.random.shuffle(indices)
-
-    train_idx, valid_idx = indices[split:], indices[:split]
-
-    train_sampler = SubsetRandomSampler(train_idx)
-    valid_sampler = SubsetRandomSampler(valid_idx)
-
     train_loader = torch.utils.data.DataLoader(
-        train_data, batch_size=batch_size, sampler=train_sampler,
+        train_data, batch_size=batch_size,
         num_workers=num_workers, pin_memory=pin_memory,
     )
     valid_loader = torch.utils.data.DataLoader(
-        train_data, batch_size=batch_size, sampler=valid_sampler,
+        val_data, batch_size=batch_size,
         num_workers=num_workers, pin_memory=pin_memory,
     )
     test_loader = torch.utils.data.DataLoader(
@@ -133,12 +121,7 @@ def get_train_test_loader(image_method,
 
     for name_set, subset in zip(['Train', 'Validation', 'Test'], [train_loader, valid_loader, test_loader]):
 
-        if name_set == 'Train':
-            labels = [train_loader.dataset.targets[i] for i in train_idx]
-        elif name_set == 'Validation':
-            labels = [train_loader.dataset.targets[i] for i in valid_idx]
-        else:
-            labels = subset.dataset.targets
+        labels = subset.dataset.targets
 
         labels = np.array(labels, dtype=int)
         print(f'{name_set}: {len(labels)} samples')
@@ -202,17 +185,12 @@ def modify_architecture(model, verbose):
 
 def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, verbose=False):
 
-    print('Defining and adapting the pre-trained model...')
-
     vgg16 = models.vgg16(pretrained=True)
 
     if until_layer:
-        print(f'Freezing until layer {until_layer}')
         for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
             for param in feature_layer.parameters():
                 param.requires_grad = False
-    else:
-        print('Using whole pre-trained model as weights initialization...')
 
     vgg16 = modify_architecture(vgg16, verbose)
 
@@ -236,7 +214,6 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
     file_save = datetime.isoformat(datetime.now())
 
-    print('Starting training and validation step...')
     print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
         print()
@@ -293,7 +270,7 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
 
         # save model if validation loss has decreased
         if valid_loss <= valid_loss_min:
-            print('Validation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
+            print('\tValidation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
                 valid_loss_min,
                 valid_loss))
             filepath = save_model(file_save, vgg16)
@@ -306,8 +283,6 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
 
 def save_model(file_save, model, verbose=False):
 
-    print('Saving the model in path:')
-
     if verbose:
         # Print model's state_dict
         print("Model's state_dict:")
@@ -315,7 +290,7 @@ def save_model(file_save, model, verbose=False):
             print(param_tensor, "\t", model.state_dict()[param_tensor].size())
 
     path_save = DIR_MODELS + file_save + EXT_MODELS
-    print(path_save)
+    print(f'\tSaving the model in path: {path_save}')
     torch.save(model.state_dict(), path_save)
 
     return path_save
@@ -337,9 +312,9 @@ def load_model(path_file, train_on_gpu, verbose):
 
 
 def testing(test_loader, vgg16, criterion, train_on_gpu):
-    print('====================================================')
+    print('================================================')
     print('Testing started')
-    print('====================================================')
+    print('================================================')
     test_loss = 0.0
     n_classes = len(LABELS)
     class_correct = list(0. for i in range(n_classes))

@@ -1,4 +1,4 @@
-from utils.files_manager import read_directory
+from utils.files_utils import read_directory
 from utils.audio_utils import AudioManager
 from utils.labels_utils import LabelsManager
 from utils.image_utils import ImageManager

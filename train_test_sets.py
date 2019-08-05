@@ -15,7 +15,7 @@ total_files = np.array(stress_files + neutral_files).reshape(-1, 1)
 imbalance_dataset = (total_files, labels)
 print_subset_info('Original set', imbalance_dataset)
 
-method_balance = 'oversampling'
+method_balance = 'undersampling'
 balanced_dataset = balance(imbalance_dataset, method=method_balance)
 print_subset_info('Balanced set', balanced_dataset)
 

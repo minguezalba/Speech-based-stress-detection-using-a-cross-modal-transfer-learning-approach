@@ -1,5 +1,7 @@
 import numpy as np
 import sys, os
+import glob
+import uuid
 from shutil import copyfile
 from imblearn.over_sampling import RandomOverSampler
 from imblearn.under_sampling import RandomUnderSampler
@@ -48,29 +50,37 @@ def split_dataset(dataset, test_size, val_size):
 
 
 def print_subset_info(name, subset):
-    print(name)
+
     labels = subset[1]
+    print(f'{name}: {len(labels)} samples')
     print('\tStress: {} ({:.2f}%)'.format(np.sum(labels == 1), np.sum(labels == 1)*100/len(labels)))
     print('\tNeutral: {} ({:.2f}%)'.format(np.sum(labels == 0), np.sum(labels == 0)*100/len(labels)))
 
 
-def create_new_directories(output_dir, list_names, list_subsets):
+def create_new_directories(root_output, list_names, list_subsets):
     for name, subset in zip(list_names, list_subsets):
+        if not os.path.isdir(root_output):
+            os.mkdir(root_output)
+
+        output_dir = root_output + name
         if not os.path.isdir(output_dir):
             os.mkdir(output_dir)
-        if not os.path.isdir(output_dir + name):
-            os.mkdir(output_dir + name)
-            os.mkdir(output_dir + name + '/stress')
-            os.mkdir(output_dir + name + '/neutral')
+            os.mkdir(output_dir + '/stress')
+            os.mkdir(output_dir + '/neutral')
 
         files = np.squeeze(subset[0])
         labels = np.squeeze(subset[1])
 
-        for file, label in zip(files, labels):
+        for i, (file, label) in enumerate(zip(files, labels)):
             filename = file.split('/')[-1]
             if label == 1:
-                new_path = output_dir + name + '/stress/' + filename
+                new_dir = output_dir + '/stress/'
             else:
-                new_path = output_dir + name + '/neutral/' + filename
+                new_dir = output_dir + '/neutral/'
 
+            new_path = new_dir + filename
+            if new_path in glob.glob(f"{new_dir}*.png"):
+                new_path = new_dir + str(uuid.uuid4()) + '_' + filename
+
+            # print(f'File {i}: {file}  -->  {new_path}')
             copyfile(file, new_path)
