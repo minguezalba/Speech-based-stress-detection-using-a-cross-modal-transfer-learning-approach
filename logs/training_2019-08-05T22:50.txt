@@ -1,0 +1,25 @@
+================================================
+Source folder images: RGB/oversampling/
+Freezing until layer: 30
+Number of epochs: 30
+Batch size: 32
+Training on GPU: True
+================================================
+Train: 5664 samples
+	Stress: 2812 (49.65%)
+	Neutral: 2852 (50.35%)
+Validation: 1416 samples
+	Stress: 706 (49.86%)
+	Neutral: 710 (50.14%)
+Test: 1770 samples
+	Stress: 882 (49.83%)
+	Neutral: 888 (50.17%)
+================================================
+N epochs: 30
+
+Epoch 1 - 2019-08-05T22:50:39.228056
+	Training Loss: 0.117164 	Validation Loss: 2.351877
+	Validation loss decreased (inf --> 2.351877).  Saving model ...
+	Saving the model in path: data/models/2019-08-05T22:50:39.228041.pth
+
+Epoch 2 - 2019-08-05T22:52:08.268731
