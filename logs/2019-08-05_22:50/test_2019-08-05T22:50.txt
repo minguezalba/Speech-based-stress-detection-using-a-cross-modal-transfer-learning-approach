@@ -1,0 +1,71 @@
+/home/alba/.local/share/virtualenvs/TFM-EF5gitxT/bin/python3.7 /home/alba/Documentos/Universidad/TFM/3_image_model_testing.py
+Train: 5664 samples
+	Stress: 2812 (49.65%)
+	Neutral: 2852 (50.35%)
+Validation: 1416 samples
+	Stress: 706 (49.86%)
+	Neutral: 710 (50.14%)
+Test: 1770 samples
+	Stress: 882 (49.83%)
+	Neutral: 888 (50.17%)
+================================================
+================================================
+Testing started
+================================================
+0/45
+1/45
+2/45
+3/45
+4/45
+5/45
+6/45
+7/45
+8/45
+9/45
+10/45
+11/45
+12/45
+13/45
+14/45
+15/45
+16/45
+17/45
+18/45
+19/45
+20/45
+21/45
+22/45
+23/45
+24/45
+25/45
+26/45
+27/45
+28/45
+29/45
+30/45
+31/45
+32/45
+33/45
+34/45
+35/45
+36/45
+37/45
+38/45
+39/45
+40/45
+41/45
+42/45
+43/45
+44/45
+Test Loss: 1.558835
+
+Test Accuracy of neutral:  0% ( 0/888)
+Test Accuracy of stress: 100% (882/882)
+
+Test Accuracy (Overall): 49% (882/1770)
+Precision: 0.50
+Recall: 1.00
+F-Score: 0.67
+
+Test elapsed time: 00:03:37.88
+
