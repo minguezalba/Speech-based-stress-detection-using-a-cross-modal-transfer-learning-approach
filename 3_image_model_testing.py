@@ -31,7 +31,7 @@ if __name__ == '__main__':
     start = time.time()
 
     image_method_ = 'RGB/oversampling/'
-    filepath_ = 'data/models/2019-08-06T07:00:22.659687.pth'
+    filepath_ = 'data/models/2019-08-06T22:21:47.328350.pth'
     main(image_method_, filepath_)
 
     end = time.time()
