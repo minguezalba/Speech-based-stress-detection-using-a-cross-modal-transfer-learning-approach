@@ -24,11 +24,12 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu, do_test):
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
-    print()
-    print("Training elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
+    train_time = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
+    print("\nTraining elapsed time: ", train_time)
 
     if do_test:
-        main_test(image_method, model_path)
+        main_test(image_method, model_path, train_time)
 
 
 if __name__ == '__main__':

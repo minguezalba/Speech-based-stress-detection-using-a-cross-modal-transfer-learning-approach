@@ -5,7 +5,7 @@ from utils.sklearn_utils import get_performance
 from utils.pytorch_utils import check_cuda_available, get_train_test_loader, testing, load_model
 
 
-def main_test(image_method, filepath):
+def main_test(image_method, filepath, time_train=''):
 
     start = time.time()
 
@@ -21,13 +21,14 @@ def main_test(image_method, filepath):
 
     total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
 
-    get_performance(total_true_labels, total_est_labels, filepath)
-
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
-    print()
-    print("Test elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
+    time_test = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
+    print("\nTest elapsed time: ", time_test)
+
+    get_performance(total_true_labels, total_est_labels, filepath, time_train, time_test)
 
 
 if __name__ == '__main__':

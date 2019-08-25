@@ -1,5 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
+from openpyxl import Workbook, load_workbook
 
 from datetime import datetime
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
@@ -7,7 +8,7 @@ from sklearn.utils.multiclass import unique_labels
 from utils.pytorch_utils import LABELS
 
 
-def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy):
+def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, time_train, time_test):
 
     parts = filepath.split('_')
     ts = datetime.fromtimestamp(parts[0])
@@ -17,10 +18,21 @@ def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy):
     n_epochs = parts[6]
     batch_size = parts[8]
 
+    workbook_name = 'results.xlsx'
+    book = load_workbook(workbook_name)
+    sheet = book.active
+
+    row = [ts, image_method, balance_method, until_layer, n_epochs, batch_size,
+           cm[0, 0], cm[0, 1], cm[1, 0], cm[1, 1],
+           cm_nor[0, 0], cm_nor[0, 1], cm_nor[1, 0], cm_nor[1, 1],
+           f_score, precision, recall, accuracy, time_train, time_test]
+
+    sheet.append(row)
+
+    book.save(workbook_name)
 
 
-
-def get_performance(total_true_labels, total_est_labels, filepath):
+def get_performance(total_true_labels, total_est_labels, filepath, time_train='', time_test=''):
 
     np.set_printoptions(precision=2)
 
@@ -43,7 +55,7 @@ def get_performance(total_true_labels, total_est_labels, filepath):
     accuracy = (cm[0, 0] + cm[1, 1]) / len(total_true_labels)
     print(f'Accuracy: {precision:.2f}')
 
-    save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy)
+    save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, time_train, time_test)
 
 
 def plot_confusion_matrix(y_true, y_pred, classes,
@@ -97,4 +109,4 @@ def plot_confusion_matrix(y_true, y_pred, classes,
                     ha="center", va="center",
                     color="white" if cm[i, j] > thresh else "black")
     fig.tight_layout()
-    return ax
+    return cm

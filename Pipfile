@@ -12,9 +12,10 @@ librosa = "*"
 pandas = "*"
 pillow = "*"
 torchvision = "*"
-torch = "==1.1.0"
+torch = "*"
 sklearn = "*"
 imbalanced-learn = "*"
+openpyxl = "*"
 
 [requires]
 python_version = "3.7"
