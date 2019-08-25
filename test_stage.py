@@ -1,9 +1,13 @@
 import time
-from sklearn.metrics import f1_score, precision_score, recall_score
+
+import numpy as np
+from utils.sklearn_utils import get_performance
 from utils.pytorch_utils import check_cuda_available, get_train_test_loader, testing, load_model
 
 
-def main(image_method, filepath):
+def main_test(image_method, filepath):
+
+    start = time.time()
 
     use_gpu = check_cuda_available()
 
@@ -17,26 +21,18 @@ def main(image_method, filepath):
 
     total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
 
-    f_score = f1_score(total_true_labels, total_est_labels)
-    precision = precision_score(total_true_labels, total_est_labels)
-    recall = recall_score(total_true_labels, total_est_labels)
-
-    print(f'Precision: {precision:.2f}')
-    print(f'Recall: {recall:.2f}')
-    print(f'F-Score: {f_score:.2f}')
-
-
-if __name__ == '__main__':
-
-    start = time.time()
-
-    image_method_ = 'greyscale/oversampling/'
-    filepath_ = 'data/models/2019-08-21T16:15:08.870886.pth'
-    main(image_method_, filepath_)
+    get_performance(total_true_labels, total_est_labels, filepath)
 
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
     print()
     print("Test elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
+
+if __name__ == '__main__':
+
+    image_method_ = 'greyscale/oversampling/'
+    filepath_ = 'data/models/2019-08-21T16:15:08.870886.pth'
+    main_test(image_method_, filepath_)
 

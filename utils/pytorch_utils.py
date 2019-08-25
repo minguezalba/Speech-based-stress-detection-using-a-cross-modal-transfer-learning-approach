@@ -37,7 +37,7 @@ def check_cuda_available():
         return True
 
 
-def plot_loss_evolution(train_losses, valid_losses):
+def plot_loss_evolution(train_losses, valid_losses, dir_experiment):
     fig = plt.figure()
     x_range = np.arange(1, len(train_losses)+1)
     plt.plot(x_range, train_losses, label='train')
@@ -46,7 +46,10 @@ def plot_loss_evolution(train_losses, valid_losses):
     plt.ylabel('loss')
     plt.xlabel('epoch')
     plt.legend(loc='upper right')
-    plt.show()
+    # plt.show()
+    filepath = dir_experiment + 'training_plot.jpg'
+    plt.savefig(filepath)
+    plt.close(fig)
 
 
 def get_train_test_loader(image_method,
@@ -207,12 +210,11 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, ve
     return vgg16, criterion, optimizer
 
 
-def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu):
+def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu, dir_experiment):
 
     valid_loss_min = np.Inf  # track change in validation loss
     filepath = ''
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
-    file_save = datetime.isoformat(datetime.now())
 
     print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
@@ -273,15 +275,16 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
             print('\tValidation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
                 valid_loss_min,
                 valid_loss))
-            filepath = save_model(file_save, vgg16)
+
+            filepath = save_model(dir_experiment, vgg16)
             valid_loss_min = valid_loss
 
-    plot_loss_evolution(train_losses, valid_losses)
+    plot_loss_evolution(train_losses, valid_losses, dir_experiment)
 
     return vgg16, filepath
 
 
-def save_model(file_save, model, verbose=False):
+def save_model(dir_experiment, model, verbose=False):
 
     if verbose:
         # Print model's state_dict
@@ -289,6 +292,7 @@ def save_model(file_save, model, verbose=False):
         for param_tensor in model.state_dict():
             print(param_tensor, "\t", model.state_dict()[param_tensor].size())
 
+    file_save = dir_experiment.split('/')[1]
     path_save = DIR_MODELS + file_save + EXT_MODELS
     print(f'\tSaving the model in path: {path_save}')
     torch.save(model.state_dict(), path_save)
@@ -367,7 +371,7 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     for i in range(n_classes):
         if class_total[i] > 0:
             print('Test Accuracy of %2s: %2d%% (%2d/%2d)' % (LABELS[i], 100 * class_correct[i] / class_total[i],
-                np.sum(class_correct[i]), np.sum(class_total[i])))
+                                                             np.sum(class_correct[i]), np.sum(class_total[i])))
         else:
             print('Test Accuracy of %2s: N/A (no training examples)' % (LABELS[i]))
 

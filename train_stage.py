@@ -1,9 +1,10 @@
 import time
-from sklearn.metrics import f1_score, precision_score, recall_score
+from test_stage import main_test
+from utils.files_utils import create_dir_logs
 from utils.pytorch_utils import check_cuda_available, get_train_test_loader, vgg16_imagenet_model, training_validation, load_model, testing
 
 
-def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
+def main(image_method, until_layer, n_epochs, batch_size, use_gpu, do_test):
     start = time.time()
 
     train_loader, valid_loader, test_loader = get_train_test_loader(image_method,
@@ -15,13 +16,19 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu):
 
     vgg16, criterion, optimizer = vgg16_imagenet_model(use_gpu, until_layer, learning_rate=0.001, verbose=False)
 
-    vgg16, filepath = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu)
+    dir_experiment = create_dir_logs(image_method, until_layer, n_epochs, batch_size)
+
+    vgg16, model_path = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu,
+                                            dir_experiment)
 
     end = time.time()
     hours, rem = divmod(end - start, 3600)
     minutes, seconds = divmod(rem, 60)
     print()
     print("Training elapsed time: {:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds))
+
+    if do_test:
+        main_test(image_method, model_path)
 
 
 if __name__ == '__main__':
@@ -35,6 +42,7 @@ if __name__ == '__main__':
     parser.add_argument('--n_epochs', dest='n_epochs', help='Number of epochs.')
     parser.add_argument('--batch_size', dest='batch_size', help='Batch size')
     parser.add_argument('--use_gpu', action='store_true', dest='use_gpu', help='Using GPU')
+    parser.add_argument('--do_test', action='store_true', dest='do_test', help='Do test after training')
 
     args = parser.parse_args()
     if not args.use_gpu:
@@ -51,6 +59,7 @@ if __name__ == '__main__':
     print(f'Number of epochs: {args.n_epochs}')
     print(f'Batch size: {args.batch_size}')
     print(f'Training on GPU: {args.use_gpu}')
+    print(f'Do test after training: {args.do_test}')
     print('================================================')
 
-    main(args.image_method, args.until_layer, int(args.n_epochs), int(args.batch_size), args.use_gpu)
+    main(args.image_method, args.until_layer, int(args.n_epochs), int(args.batch_size), args.use_gpu, args.do_test)
