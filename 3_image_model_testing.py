@@ -30,8 +30,8 @@ if __name__ == '__main__':
 
     start = time.time()
 
-    image_method_ = 'RGB/oversampling/'
-    filepath_ = 'data/models/2019-08-06T22:21:47.328350.pth'
+    image_method_ = 'greyscale/oversampling/'
+    filepath_ = 'data/models/2019-08-21T16:15:08.870886.pth'
     main(image_method_, filepath_)
 
     end = time.time()
