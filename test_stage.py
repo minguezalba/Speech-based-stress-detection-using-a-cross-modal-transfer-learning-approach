@@ -11,6 +11,9 @@ def main_test(image_method, filepath, time_train=''):
 
     use_gpu = check_cuda_available()
 
+    print('\n================================================')
+    print(f'Testing started')
+    print('================================================')
     train_loader, valid_loader, test_loader = get_train_test_loader(image_method,
                                                                     valid_size=0.2,
                                                                     random_seed=42,
@@ -18,6 +21,10 @@ def main_test(image_method, filepath, time_train=''):
                                                                     cuda=use_gpu)
 
     vgg16, criterion = load_model(filepath, train_on_gpu=False, verbose=False)
+
+    print(f'Source folder images: {image_method}')
+    print(f'Model: {filepath}')
+    print('================================================')
 
     total_true_labels, total_est_labels = testing(test_loader, vgg16, criterion, False)
 
@@ -27,6 +34,7 @@ def main_test(image_method, filepath, time_train=''):
 
     time_test = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
     print("\nTest elapsed time: ", time_test)
+    print('================================================')
 
     get_performance(total_true_labels, total_est_labels, filepath, time_train, time_test)
 

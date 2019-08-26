@@ -216,7 +216,6 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     filepath = ''
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
 
-    print(f'N epochs: {n_epochs}')
     for epoch in range(1, n_epochs + 1):
         print()
         print(f'Epoch {epoch} - {datetime.isoformat(datetime.now())}')
@@ -316,9 +315,7 @@ def load_model(path_file, train_on_gpu, verbose):
 
 
 def testing(test_loader, vgg16, criterion, train_on_gpu):
-    print('================================================')
-    print('Testing started')
-    print('================================================')
+
     test_loss = 0.0
     n_classes = len(LABELS)
     class_correct = list(0. for i in range(n_classes))
@@ -331,7 +328,7 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     # iterate over test data
     for batch_i, (data, target) in enumerate(test_loader):
 
-        print('{}/{}'.format(batch_i, len(test_loader)))
+        print('{}/{}, '.format(batch_i, len(test_loader)), end = '')
         # move tensors to GPU if CUDA is available
         if train_on_gpu:
             data, target = data.cuda(), target.cuda()
@@ -366,7 +363,7 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
 
     # calculate avg test loss
     test_loss = test_loss / len(test_loader.dataset)
-    print('Test Loss: {:.6f}\n'.format(test_loss))
+    print('\nTest Loss: {:.6f}\n'.format(test_loss))
 
     for i in range(n_classes):
         if class_total[i] > 0:

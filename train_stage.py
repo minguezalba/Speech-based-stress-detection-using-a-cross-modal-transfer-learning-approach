@@ -27,6 +27,7 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu, do_test):
 
     train_time = "{:0>2}:{:0>2}:{:05.2f}".format(int(hours), int(minutes), seconds)
     print("\nTraining elapsed time: ", train_time)
+    print('================================================')
 
     if do_test:
         main_test(image_method, model_path, train_time)

@@ -11,14 +11,14 @@ from utils.pytorch_utils import LABELS
 def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, time_train, time_test):
 
     parts = filepath.split('_')
-    ts = datetime.fromtimestamp(parts[0])
+    ts = str(datetime.fromtimestamp(int(parts[0].split('/')[-1])))
     image_method = parts[1]
     balance_method = parts[2]
-    until_layer = parts[4]
-    n_epochs = parts[6]
-    batch_size = parts[8]
+    until_layer = int(parts[4])
+    n_epochs = int(parts[6])
+    batch_size = int(parts[8].split('.')[0])
 
-    workbook_name = 'results.xlsx'
+    workbook_name = 'logs/results.xlsx'
     book = load_workbook(workbook_name)
     sheet = book.active
 
@@ -37,11 +37,11 @@ def get_performance(total_true_labels, total_est_labels, filepath, time_train=''
     np.set_printoptions(precision=2)
 
     # Plot non-normalized confusion matrix
-    cm = plot_confusion_matrix(total_true_labels, total_est_labels, classes=LABELS,
+    cm = plot_confusion_matrix(total_true_labels, total_est_labels, classes=np.array(LABELS),
                                title='Confusion matrix, without normalization')
 
     # Plot normalized confusion matrix
-    cm_nor = plot_confusion_matrix(total_true_labels, total_est_labels, classes=LABELS, normalize=True,
+    cm_nor = plot_confusion_matrix(total_true_labels, total_est_labels, classes=np.array(LABELS), normalize=True,
                                    title='Normalized confusion matrix')
 
     f_score = f1_score(total_true_labels, total_est_labels)
@@ -84,29 +84,29 @@ def plot_confusion_matrix(y_true, y_pred, classes,
 
     print(cm)
 
-    fig, ax = plt.subplots()
-    im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
-    ax.figure.colorbar(im, ax=ax)
-    # We want to show all ticks...
-    ax.set(xticks=np.arange(cm.shape[1]),
-           yticks=np.arange(cm.shape[0]),
-           # ... and label them with the respective list entries
-           xticklabels=classes, yticklabels=classes,
-           title=title,
-           ylabel='True label',
-           xlabel='Predicted label')
-
-    # Rotate the tick labels and set their alignment.
-    plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
-             rotation_mode="anchor")
-
-    # Loop over data dimensions and create text annotations.
-    fmt = '.2f' if normalize else 'd'
-    thresh = cm.max() / 2.
-    for i in range(cm.shape[0]):
-        for j in range(cm.shape[1]):
-            ax.text(j, i, format(cm[i, j], fmt),
-                    ha="center", va="center",
-                    color="white" if cm[i, j] > thresh else "black")
-    fig.tight_layout()
+    # fig, ax = plt.subplots()
+    # im = ax.imshow(cm, interpolation='nearest', cmap=cmap)
+    # ax.figure.colorbar(im, ax=ax)
+    # # We want to show all ticks...
+    # ax.set(xticks=np.arange(cm.shape[1]),
+    #        yticks=np.arange(cm.shape[0]),
+    #        # ... and label them with the respective list entries
+    #        xticklabels=classes, yticklabels=classes,
+    #        title=title,
+    #        ylabel='True label',
+    #        xlabel='Predicted label')
+    #
+    # # Rotate the tick labels and set their alignment.
+    # plt.setp(ax.get_xticklabels(), rotation=45, ha="right",
+    #          rotation_mode="anchor")
+    #
+    # # Loop over data dimensions and create text annotations.
+    # fmt = '.2f' if normalize else 'd'
+    # thresh = cm.max() / 2.
+    # for i in range(cm.shape[0]):
+    #     for j in range(cm.shape[1]):
+    #         ax.text(j, i, format(cm[i, j], fmt),
+    #                 ha="center", va="center",
+    #                 color="white" if cm[i, j] > thresh else "black")
+    # fig.tight_layout()
     return cm
