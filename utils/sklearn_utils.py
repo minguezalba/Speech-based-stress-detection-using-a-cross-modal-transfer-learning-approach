@@ -1,7 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from openpyxl import Workbook, load_workbook
-
 from datetime import datetime
 from sklearn.metrics import confusion_matrix, f1_score, precision_score, recall_score
 from sklearn.utils.multiclass import unique_labels
@@ -32,38 +31,41 @@ def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, tim
     book.save(workbook_name)
 
 
-def get_performance(total_true_labels, total_est_labels, filepath, time_train='', time_test=''):
+def get_performance(total_true_labels, total_est_labels, filepath, logger, time_train='', time_test=''):
 
+    logger.info("================================================")
+    logger.info("Performance metrics:")
+    logger.info("================================================")
     np.set_printoptions(precision=2)
 
     # Plot non-normalized confusion matrix
-    cm = plot_confusion_matrix(total_true_labels, total_est_labels, classes=np.array(LABELS),
+    cm = plot_confusion_matrix(total_true_labels, total_est_labels, classes=np.array(LABELS), logger=logger,
                                title='Confusion matrix, without normalization')
 
     # Plot normalized confusion matrix
     cm_nor = plot_confusion_matrix(total_true_labels, total_est_labels, classes=np.array(LABELS), normalize=True,
-                                   title='Normalized confusion matrix')
+                                   logger=logger, title='Normalized confusion matrix')
 
     f_score = f1_score(total_true_labels, total_est_labels)
     precision = precision_score(total_true_labels, total_est_labels)
     recall = recall_score(total_true_labels, total_est_labels)
 
-    print(f'Precision: {precision:.2f}')
-    print(f'Recall: {recall:.2f}')
-    print(f'F-Score: {f_score:.2f}')
+    logger.info(f'Precision: {precision:.2f}')
+    logger.info(f'Recall: {recall:.2f}')
+    logger.info(f'F-Score: {f_score:.2f}')
 
     accuracy = (cm[0, 0] + cm[1, 1]) / len(total_true_labels)
-    print(f'Accuracy: {precision:.2f}')
+    logger.info(f'Accuracy: {precision:.2f}')
 
     save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, time_train, time_test)
 
 
-def plot_confusion_matrix(y_true, y_pred, classes,
+def plot_confusion_matrix(y_true, y_pred, classes, logger,
                           normalize=False,
                           title=None,
                           cmap=plt.cm.Blues):
     """
-    This function prints and plots the confusion matrix.
+    This function logger_.infos and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
     """
     if not title:
@@ -78,11 +80,11 @@ def plot_confusion_matrix(y_true, y_pred, classes,
     classes = classes[unique_labels(y_true, y_pred)]
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-        print("Normalized confusion matrix")
+        logger.info("Normalized confusion matrix")
     else:
-        print('Confusion matrix, without normalization')
+        logger.info('Confusion matrix, without normalization')
 
-    print(cm)
+    logger.info(cm)
 
     # fig, ax = plt.subplots()
     # im = ax.imshow(cm, interpolation='nearest', cmap=cmap)

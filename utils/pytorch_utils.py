@@ -7,7 +7,6 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data.sampler import SubsetRandomSampler
-# from utils import plot_images
 from torchvision import datasets, transforms, models
 
 from utils.image_utils import DIR_IMAGES
@@ -30,10 +29,10 @@ def check_cuda_available():
     train_on_gpu = torch.cuda.is_available()
 
     if not train_on_gpu:
-        # print('CUDA is not available.  Training on CPU ...')
+        # logger.info('CUDA is not available.  Training on CPU ...')
         return False
     else:
-        # print('CUDA is available!  Training on GPU ...')
+        # logger.info('CUDA is available!  Training on GPU ...')
         return True
 
 
@@ -54,6 +53,7 @@ def plot_loss_evolution(train_losses, valid_losses, dir_experiment):
 
 def get_train_test_loader(image_method,
                           random_seed,
+                          logger,
                           batch_size=BATCH_SIZE,
                           valid_size=0.1,
                           shuffle=True,
@@ -127,17 +127,17 @@ def get_train_test_loader(image_method,
         labels = subset.dataset.targets
 
         labels = np.array(labels, dtype=int)
-        print(f'{name_set}: {len(labels)} samples')
-        print('\tStress: {} ({:.2f}%)'.format(np.sum(labels == 1),
+        logger.info(f'{name_set}: {len(labels)} samples')
+        logger.info('\tStress: {} ({:.2f}%)'.format(np.sum(labels == 1),
                                               np.sum(labels == 1) * 100 / len(labels)))
-        print('\tNeutral: {} ({:.2f}%)'.format(np.sum(labels == 0),
+        logger.info('\tNeutral: {} ({:.2f}%)'.format(np.sum(labels == 0),
                                                np.sum(labels == 0) * 100 / len(labels)))
 
-    print('================================================')
+    logger.info('================================================')
     # visualize some images
     if show:
         show_sampler = SubsetRandomSampler(list(range(9)))
-        # print('show sampler: ', show_sampler.indices)
+        # logger.info('show sampler: ', show_sampler.indices)
         show_loader = torch.utils.data.DataLoader(
             train_data, batch_size=9, sampler=show_sampler,
             num_workers=num_workers, pin_memory=pin_memory,
@@ -165,10 +165,10 @@ def get_train_test_loader(image_method,
     return train_loader, valid_loader, test_loader
 
 
-def modify_architecture(model, verbose):
+def modify_architecture(model, verbose, logger):
     if verbose:
-        print(f'Original VGG16 Model pre-trained on ImageNet:')
-        print(model)
+        logger.info(f'Original VGG16 Model pre-trained on ImageNet:')
+        logger.info(model)
 
     n_inputs = model.classifier[6].in_features
 
@@ -179,14 +179,14 @@ def modify_architecture(model, verbose):
     model.classifier[6] = last_layer
 
     if verbose:
-        print('-------------------------------------------------')
-        print(f'Adapted VGG16 Model pre-trained on ImageNet:')
-        print(model)
+        logger.info('-------------------------------------------------')
+        logger.info(f'Adapted VGG16 Model pre-trained on ImageNet:')
+        logger.info(model)
 
     return model
 
 
-def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, verbose=False):
+def vgg16_imagenet_model(train_on_gpu, logger, until_layer=None, learning_rate=0.001, verbose=False):
 
     vgg16 = models.vgg16(pretrained=True)
 
@@ -195,7 +195,7 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, ve
             for param in feature_layer.parameters():
                 param.requires_grad = False
 
-    vgg16 = modify_architecture(vgg16, verbose)
+    vgg16 = modify_architecture(vgg16, verbose, logger)
 
     # if GPU is available, move the model to GPU
     if train_on_gpu:
@@ -210,15 +210,15 @@ def vgg16_imagenet_model(train_on_gpu, until_layer=None, learning_rate=0.001, ve
     return vgg16, criterion, optimizer
 
 
-def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu, dir_experiment):
+def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, train_on_gpu, dir_experiment,
+                        logger):
 
     valid_loss_min = np.Inf  # track change in validation loss
     filepath = ''
     train_losses, valid_losses = np.zeros((n_epochs, 1)), np.zeros((n_epochs, 1))
 
     for epoch in range(1, n_epochs + 1):
-        print()
-        print(f'Epoch {epoch} - {datetime.isoformat(datetime.now())}')
+        logger.info(f'\nEpoch {epoch} - {datetime.isoformat(datetime.now())}')
         # keep track of training and validation loss
         train_loss = 0.0
         valid_loss = 0.0
@@ -265,17 +265,17 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
         valid_loss = valid_loss / len(valid_loader.dataset)
         valid_losses[epoch-1] = valid_loss
 
-        # print training/validation statistics
-        print('\tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
+        # logger.info training/validation statistics
+        logger.info('\tTraining Loss: {:.6f} \tValidation Loss: {:.6f}'.format(
             train_loss, valid_loss))
 
         # save model if validation loss has decreased
         if valid_loss <= valid_loss_min:
-            print('\tValidation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
+            logger.info('\tValidation loss decreased ({:.6f} --> {:.6f}).  Saving model ...'.format(
                 valid_loss_min,
                 valid_loss))
 
-            filepath = save_model(dir_experiment, vgg16)
+            filepath = save_model(dir_experiment, vgg16, logger)
             valid_loss_min = valid_loss
 
     plot_loss_evolution(train_losses, valid_losses, dir_experiment)
@@ -283,25 +283,25 @@ def training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, 
     return vgg16, filepath
 
 
-def save_model(dir_experiment, model, verbose=False):
+def save_model(dir_experiment, model, logger, verbose=False):
 
     if verbose:
-        # Print model's state_dict
-        print("Model's state_dict:")
+        # logger.info model's state_dict
+        logger.info("Model's state_dict:")
         for param_tensor in model.state_dict():
-            print(param_tensor, "\t", model.state_dict()[param_tensor].size())
+            logger.info(param_tensor, "\t", model.state_dict()[param_tensor].size())
 
     file_save = dir_experiment.split('/')[1]
     path_save = DIR_MODELS + file_save + EXT_MODELS
-    print(f'\tSaving the model in path: {path_save}')
+    logger.info(f'\tSaving the model in path: {path_save}')
     torch.save(model.state_dict(), path_save)
 
     return path_save
 
 
-def load_model(path_file, train_on_gpu, verbose):
+def load_model(path_file, train_on_gpu, verbose, logger):
     vgg16 = models.vgg16()
-    vgg16 = modify_architecture(vgg16, verbose)
+    vgg16 = modify_architecture(vgg16, verbose, logger)
 
     criterion = nn.CrossEntropyLoss()
 
@@ -314,7 +314,7 @@ def load_model(path_file, train_on_gpu, verbose):
     return vgg16, criterion
 
 
-def testing(test_loader, vgg16, criterion, train_on_gpu):
+def testing(test_loader, vgg16, criterion, train_on_gpu, logger):
 
     test_loss = 0.0
     n_classes = len(LABELS)
@@ -328,7 +328,7 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
     # iterate over test data
     for batch_i, (data, target) in enumerate(test_loader):
 
-        print('{}/{}, '.format(batch_i, len(test_loader)), end = '')
+        logger.info('{}/{}, '.format(batch_i, len(test_loader)))
         # move tensors to GPU if CUDA is available
         if train_on_gpu:
             data, target = data.cuda(), target.cuda()
@@ -363,16 +363,16 @@ def testing(test_loader, vgg16, criterion, train_on_gpu):
 
     # calculate avg test loss
     test_loss = test_loss / len(test_loader.dataset)
-    print('\nTest Loss: {:.6f}\n'.format(test_loss))
+    logger.info('\nTest Loss: {:.6f}\n'.format(test_loss))
 
     for i in range(n_classes):
         if class_total[i] > 0:
-            print('Test Accuracy of %2s: %2d%% (%2d/%2d)' % (LABELS[i], 100 * class_correct[i] / class_total[i],
+            logger.info('Test Accuracy of %2s: %2d%% (%2d/%2d)' % (LABELS[i], 100 * class_correct[i] / class_total[i],
                                                              np.sum(class_correct[i]), np.sum(class_total[i])))
         else:
-            print('Test Accuracy of %2s: N/A (no training examples)' % (LABELS[i]))
+            logger.info('Test Accuracy of %2s: N/A (no training examples)' % (LABELS[i]))
 
-    print('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
+    logger.info('\nTest Accuracy (Overall): %2d%% (%2d/%2d)' % (
         100. * np.sum(class_correct) / np.sum(class_total),
         np.sum(class_correct), np.sum(class_total)))
 
