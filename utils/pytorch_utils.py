@@ -190,6 +190,7 @@ def vgg16_imagenet_model(train_on_gpu, logger, until_layer=None, learning_rate=0
 
     vgg16 = models.vgg16(pretrained=True)
 
+    # Layers to freeze
     if until_layer:
         for i, feature_layer in enumerate(vgg16.features[:until_layer+1]):
             for param in feature_layer.parameters():
