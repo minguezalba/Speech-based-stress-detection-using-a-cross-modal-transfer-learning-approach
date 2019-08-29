@@ -13,7 +13,7 @@ def save_metrics(filepath, cm, cm_nor, f_score, precision, recall, accuracy, tim
     ts = str(datetime.fromtimestamp(int(parts[0].split('/')[-1])))
     image_method = parts[1]
     balance_method = parts[2]
-    until_layer = int(parts[4])
+    until_layer = -1 if parts[4] == 'None' else int(parts[4])
     n_epochs = int(parts[6])
     batch_size = int(parts[8].split('.')[0])
 
