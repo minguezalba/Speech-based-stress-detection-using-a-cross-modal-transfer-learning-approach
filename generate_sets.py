@@ -2,8 +2,8 @@ import glob, os, random
 import numpy as np
 from utils.sets_utils import split_dataset, balance, print_subset_info, create_new_directories
 
-# root_dir = 'data/images/greyscale/'
-root_dir = 'data/images/RGB/'
+root_dir = 'data/images/greyscale/'
+# root_dir = 'data/images/RGB/'
 input_dir = root_dir + 'imbalanced/'
 
 stress_files = list(glob.glob(input_dir + 'stress/*.png'))
@@ -16,8 +16,8 @@ total_files = np.array(stress_files + neutral_files).reshape(-1, 1)
 imbalance_dataset = (total_files, labels)
 print_subset_info('\nOriginal set', imbalance_dataset)
 
-method_balance = 'undersampling'
-# method_balance = 'oversampling'
+# method_balance = 'undersampling'
+method_balance = 'oversampling'
 
 output_dir = root_dir + method_balance + '/'
 train, val, test = split_dataset(imbalance_dataset, test_size=0.2, val_size=0.2)
