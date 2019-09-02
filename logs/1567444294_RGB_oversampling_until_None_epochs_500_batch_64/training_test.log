@@ -1,0 +1,130 @@
+================================================
+Source folder images: RGB/oversampling/
+Freezing until layer: None
+Number of epochs: 500
+Batch size: 64
+Training on GPU: True
+Do test after training: True
+================================================
+Train: 5624 samples
+	Stress: 2812 (50.00%)
+	Neutral: 2812 (50.00%)
+Validation: 1386 samples
+	Stress: 693 (50.00%)
+	Neutral: 693 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+
+Epoch 1 - 2019-09-02T17:11:42.778924
+	Training Loss: 0.189432 	Validation Loss: 1.952020
+	Validation loss decreased (inf --> 1.952020).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 2 - 2019-09-02T17:14:37.362011
+	Training Loss: 0.293470 	Validation Loss: 1.877059
+	Validation loss decreased (1.952020 --> 1.877059).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 3 - 2019-09-02T17:18:20.156080
+	Training Loss: 0.298466 	Validation Loss: 1.803716
+	Validation loss decreased (1.877059 --> 1.803716).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 4 - 2019-09-02T17:22:03.763334
+	Training Loss: 0.304006 	Validation Loss: 1.742177
+	Validation loss decreased (1.803716 --> 1.742177).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 5 - 2019-09-02T17:25:47.587433
+	Training Loss: 0.306601 	Validation Loss: 1.694359
+	Validation loss decreased (1.742177 --> 1.694359).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 6 - 2019-09-02T17:29:31.493856
+	Training Loss: 0.312731 	Validation Loss: 1.636046
+	Validation loss decreased (1.694359 --> 1.636046).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 7 - 2019-09-02T17:33:15.223983
+	Training Loss: 0.318893 	Validation Loss: 1.595492
+	Validation loss decreased (1.636046 --> 1.595492).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 8 - 2019-09-02T17:36:58.892849
+	Training Loss: 0.321119 	Validation Loss: 1.556707
+	Validation loss decreased (1.595492 --> 1.556707).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 9 - 2019-09-02T17:40:42.896014
+	Training Loss: 0.329094 	Validation Loss: 1.521173
+	Validation loss decreased (1.556707 --> 1.521173).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 10 - 2019-09-02T17:44:26.916934
+	Training Loss: 0.332888 	Validation Loss: 1.476630
+	Validation loss decreased (1.521173 --> 1.476630).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 11 - 2019-09-02T17:48:10.975007
+	Training Loss: 0.334783 	Validation Loss: 1.444815
+	Validation loss decreased (1.476630 --> 1.444815).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 12 - 2019-09-02T17:51:54.977646
+	Training Loss: 0.337648 	Validation Loss: 1.427079
+	Validation loss decreased (1.444815 --> 1.427079).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 13 - 2019-09-02T17:55:38.930692
+	Training Loss: 0.342834 	Validation Loss: 1.397271
+	Validation loss decreased (1.427079 --> 1.397271).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 14 - 2019-09-02T17:59:23.141714
+	Training Loss: 0.344779 	Validation Loss: 1.376219
+	Validation loss decreased (1.397271 --> 1.376219).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 15 - 2019-09-02T18:03:07.289722
+	Training Loss: 0.346379 	Validation Loss: 1.344002
+	Validation loss decreased (1.376219 --> 1.344002).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 16 - 2019-09-02T18:06:51.193854
+	Training Loss: 0.348987 	Validation Loss: 1.325295
+	Validation loss decreased (1.344002 --> 1.325295).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 17 - 2019-09-02T18:10:35.163200
+	Training Loss: 0.350612 	Validation Loss: 1.298865
+	Validation loss decreased (1.325295 --> 1.298865).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 18 - 2019-09-02T18:14:19.124699
+	Training Loss: 0.355189 	Validation Loss: 1.272520
+	Validation loss decreased (1.298865 --> 1.272520).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 19 - 2019-09-02T18:18:03.045304
+	Training Loss: 0.353387 	Validation Loss: 1.253319
+	Validation loss decreased (1.272520 --> 1.253319).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 20 - 2019-09-02T18:21:46.968940
+	Training Loss: 0.355143 	Validation Loss: 1.247632
+	Validation loss decreased (1.253319 --> 1.247632).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 21 - 2019-09-02T18:25:31.143957
+	Training Loss: 0.356449 	Validation Loss: 1.228099
+	Validation loss decreased (1.247632 --> 1.228099).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 22 - 2019-09-02T18:29:15.401991
+	Training Loss: 0.357138 	Validation Loss: 1.214034
+	Validation loss decreased (1.228099 --> 1.214034).  Saving model ...
+	Saving the model in path: data/models/1567444294_RGB_oversampling_until_None_epochs_500_batch_64.pth
+
+Epoch 23 - 2019-09-02T18:32:59.503768
