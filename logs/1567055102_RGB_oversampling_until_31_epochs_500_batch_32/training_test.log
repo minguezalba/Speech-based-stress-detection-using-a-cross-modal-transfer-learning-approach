@@ -1,0 +1,1820 @@
+================================================
+Source folder images: RGB/oversampling/
+Freezing until layer: 31
+Number of epochs: 500
+Batch size: 32
+Training on GPU: True
+Do test after training: True
+================================================
+Train: 5624 samples
+	Stress: 2812 (50.00%)
+	Neutral: 2812 (50.00%)
+Validation: 1386 samples
+	Stress: 693 (50.00%)
+	Neutral: 693 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+
+Epoch 1 - 2019-08-29T07:05:06.853558
+	Training Loss: 0.117265 	Validation Loss: 2.320020
+	Validation loss decreased (inf --> 2.320020).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 2 - 2019-08-29T07:06:31.319721
+	Training Loss: 0.189834 	Validation Loss: 2.227610
+	Validation loss decreased (2.320020 --> 2.227610).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 3 - 2019-08-29T07:07:55.994835
+	Training Loss: 0.195129 	Validation Loss: 2.154221
+	Validation loss decreased (2.227610 --> 2.154221).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 4 - 2019-08-29T07:09:20.902958
+	Training Loss: 0.198223 	Validation Loss: 2.087357
+	Validation loss decreased (2.154221 --> 2.087357).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 5 - 2019-08-29T07:10:46.116944
+	Training Loss: 0.207037 	Validation Loss: 2.029893
+	Validation loss decreased (2.087357 --> 2.029893).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 6 - 2019-08-29T07:12:11.116540
+	Training Loss: 0.212234 	Validation Loss: 1.972589
+	Validation loss decreased (2.029893 --> 1.972589).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 7 - 2019-08-29T07:13:36.211459
+	Training Loss: 0.217670 	Validation Loss: 1.928984
+	Validation loss decreased (1.972589 --> 1.928984).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 8 - 2019-08-29T07:15:01.190180
+	Training Loss: 0.226768 	Validation Loss: 1.882300
+	Validation loss decreased (1.928984 --> 1.882300).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 9 - 2019-08-29T07:16:26.114004
+	Training Loss: 0.230697 	Validation Loss: 1.845075
+	Validation loss decreased (1.882300 --> 1.845075).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 10 - 2019-08-29T07:17:51.055718
+	Training Loss: 0.236509 	Validation Loss: 1.795365
+	Validation loss decreased (1.845075 --> 1.795365).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 11 - 2019-08-29T07:19:16.059210
+	Training Loss: 0.242528 	Validation Loss: 1.749711
+	Validation loss decreased (1.795365 --> 1.749711).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 12 - 2019-08-29T07:20:41.007977
+	Training Loss: 0.244961 	Validation Loss: 1.720497
+	Validation loss decreased (1.749711 --> 1.720497).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 13 - 2019-08-29T07:22:05.986468
+	Training Loss: 0.249993 	Validation Loss: 1.691233
+	Validation loss decreased (1.720497 --> 1.691233).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 14 - 2019-08-29T07:23:30.985808
+	Training Loss: 0.251028 	Validation Loss: 1.663859
+	Validation loss decreased (1.691233 --> 1.663859).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 15 - 2019-08-29T07:24:55.986811
+	Training Loss: 0.255205 	Validation Loss: 1.651659
+	Validation loss decreased (1.663859 --> 1.651659).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 16 - 2019-08-29T07:26:20.974756
+	Training Loss: 0.255411 	Validation Loss: 1.625168
+	Validation loss decreased (1.651659 --> 1.625168).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 17 - 2019-08-29T07:27:45.939868
+	Training Loss: 0.256753 	Validation Loss: 1.609493
+	Validation loss decreased (1.625168 --> 1.609493).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 18 - 2019-08-29T07:29:10.910101
+	Training Loss: 0.256898 	Validation Loss: 1.587455
+	Validation loss decreased (1.609493 --> 1.587455).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 19 - 2019-08-29T07:30:35.896376
+	Training Loss: 0.257057 	Validation Loss: 1.574887
+	Validation loss decreased (1.587455 --> 1.574887).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 20 - 2019-08-29T07:32:00.881708
+	Training Loss: 0.254026 	Validation Loss: 1.572931
+	Validation loss decreased (1.574887 --> 1.572931).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 21 - 2019-08-29T07:33:25.876511
+	Training Loss: 0.258043 	Validation Loss: 1.557693
+	Validation loss decreased (1.572931 --> 1.557693).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 22 - 2019-08-29T07:34:50.875263
+	Training Loss: 0.259089 	Validation Loss: 1.537877
+	Validation loss decreased (1.557693 --> 1.537877).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 23 - 2019-08-29T07:36:15.856712
+	Training Loss: 0.259842 	Validation Loss: 1.528179
+	Validation loss decreased (1.537877 --> 1.528179).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 24 - 2019-08-29T07:37:40.828631
+	Training Loss: 0.257032 	Validation Loss: 1.514832
+	Validation loss decreased (1.528179 --> 1.514832).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 25 - 2019-08-29T07:39:05.792442
+	Training Loss: 0.256378 	Validation Loss: 1.501531
+	Validation loss decreased (1.514832 --> 1.501531).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 26 - 2019-08-29T07:40:30.739077
+	Training Loss: 0.256219 	Validation Loss: 1.495362
+	Validation loss decreased (1.501531 --> 1.495362).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 27 - 2019-08-29T07:41:55.717702
+	Training Loss: 0.255117 	Validation Loss: 1.492535
+	Validation loss decreased (1.495362 --> 1.492535).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 28 - 2019-08-29T07:43:20.683803
+	Training Loss: 0.251999 	Validation Loss: 1.504112
+
+Epoch 29 - 2019-08-29T07:44:44.638850
+	Training Loss: 0.250536 	Validation Loss: 1.498952
+
+Epoch 30 - 2019-08-29T07:46:08.542270
+	Training Loss: 0.247980 	Validation Loss: 1.496015
+
+Epoch 31 - 2019-08-29T07:47:32.484705
+	Training Loss: 0.248867 	Validation Loss: 1.487069
+	Validation loss decreased (1.492535 --> 1.487069).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 32 - 2019-08-29T07:48:57.553782
+	Training Loss: 0.244764 	Validation Loss: 1.482122
+	Validation loss decreased (1.487069 --> 1.482122).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 33 - 2019-08-29T07:50:22.535190
+	Training Loss: 0.239222 	Validation Loss: 1.488519
+
+Epoch 34 - 2019-08-29T07:51:46.513998
+	Training Loss: 0.236639 	Validation Loss: 1.504583
+
+Epoch 35 - 2019-08-29T07:53:10.518512
+	Training Loss: 0.233611 	Validation Loss: 1.499227
+
+Epoch 36 - 2019-08-29T07:54:34.501698
+	Training Loss: 0.231428 	Validation Loss: 1.500956
+
+Epoch 37 - 2019-08-29T07:55:58.484194
+	Training Loss: 0.230218 	Validation Loss: 1.498173
+
+Epoch 38 - 2019-08-29T07:57:22.434984
+	Training Loss: 0.228850 	Validation Loss: 1.492036
+
+Epoch 39 - 2019-08-29T07:58:46.429324
+	Training Loss: 0.224932 	Validation Loss: 1.506756
+
+Epoch 40 - 2019-08-29T08:00:10.398056
+	Training Loss: 0.223802 	Validation Loss: 1.494803
+
+Epoch 41 - 2019-08-29T08:01:34.367634
+	Training Loss: 0.221432 	Validation Loss: 1.501047
+
+Epoch 42 - 2019-08-29T08:02:58.351737
+	Training Loss: 0.217243 	Validation Loss: 1.505688
+
+Epoch 43 - 2019-08-29T08:04:22.315531
+	Training Loss: 0.213141 	Validation Loss: 1.503335
+
+Epoch 44 - 2019-08-29T08:05:46.270412
+	Training Loss: 0.211862 	Validation Loss: 1.479581
+	Validation loss decreased (1.482122 --> 1.479581).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 45 - 2019-08-29T08:07:11.208764
+	Training Loss: 0.204278 	Validation Loss: 1.528280
+
+Epoch 46 - 2019-08-29T08:08:35.168568
+	Training Loss: 0.203771 	Validation Loss: 1.540276
+
+Epoch 47 - 2019-08-29T08:09:59.150127
+	Training Loss: 0.201729 	Validation Loss: 1.518338
+
+Epoch 48 - 2019-08-29T08:11:23.109321
+	Training Loss: 0.194267 	Validation Loss: 1.529111
+
+Epoch 49 - 2019-08-29T08:12:47.067310
+	Training Loss: 0.192241 	Validation Loss: 1.555477
+
+Epoch 50 - 2019-08-29T08:14:11.028384
+	Training Loss: 0.188457 	Validation Loss: 1.535907
+
+Epoch 51 - 2019-08-29T08:15:34.968732
+	Training Loss: 0.185534 	Validation Loss: 1.531406
+
+Epoch 52 - 2019-08-29T08:16:58.921683
+	Training Loss: 0.181233 	Validation Loss: 1.559604
+
+Epoch 53 - 2019-08-29T08:18:22.876453
+	Training Loss: 0.178271 	Validation Loss: 1.547924
+
+Epoch 54 - 2019-08-29T08:19:46.860913
+	Training Loss: 0.173336 	Validation Loss: 1.581737
+
+Epoch 55 - 2019-08-29T08:21:10.854107
+	Training Loss: 0.171572 	Validation Loss: 1.572947
+
+Epoch 56 - 2019-08-29T08:22:34.833578
+	Training Loss: 0.166205 	Validation Loss: 1.596703
+
+Epoch 57 - 2019-08-29T08:23:58.805611
+	Training Loss: 0.164120 	Validation Loss: 1.595905
+
+Epoch 58 - 2019-08-29T08:25:22.771827
+	Training Loss: 0.160602 	Validation Loss: 1.577842
+
+Epoch 59 - 2019-08-29T08:26:46.775685
+	Training Loss: 0.155822 	Validation Loss: 1.614956
+
+Epoch 60 - 2019-08-29T08:28:10.771091
+	Training Loss: 0.152431 	Validation Loss: 1.619275
+
+Epoch 61 - 2019-08-29T08:29:34.740906
+	Training Loss: 0.153314 	Validation Loss: 1.616092
+
+Epoch 62 - 2019-08-29T08:30:58.698563
+	Training Loss: 0.146661 	Validation Loss: 1.629470
+
+Epoch 63 - 2019-08-29T08:32:22.685666
+	Training Loss: 0.143911 	Validation Loss: 1.628901
+
+Epoch 64 - 2019-08-29T08:33:46.659680
+	Training Loss: 0.141599 	Validation Loss: 1.615951
+
+Epoch 65 - 2019-08-29T08:35:10.622312
+	Training Loss: 0.135376 	Validation Loss: 1.658265
+
+Epoch 66 - 2019-08-29T08:36:34.581084
+	Training Loss: 0.135791 	Validation Loss: 1.656344
+
+Epoch 67 - 2019-08-29T08:37:58.525466
+	Training Loss: 0.130935 	Validation Loss: 1.631230
+
+Epoch 68 - 2019-08-29T08:39:22.528077
+	Training Loss: 0.128165 	Validation Loss: 1.664468
+
+Epoch 69 - 2019-08-29T08:40:46.482000
+	Training Loss: 0.125259 	Validation Loss: 1.689537
+
+Epoch 70 - 2019-08-29T08:42:10.458727
+	Training Loss: 0.122352 	Validation Loss: 1.674213
+
+Epoch 71 - 2019-08-29T08:43:34.430612
+	Training Loss: 0.120422 	Validation Loss: 1.674686
+
+Epoch 72 - 2019-08-29T08:44:58.412038
+	Training Loss: 0.115727 	Validation Loss: 1.714317
+
+Epoch 73 - 2019-08-29T08:46:22.373614
+	Training Loss: 0.115936 	Validation Loss: 1.671874
+
+Epoch 74 - 2019-08-29T08:47:46.337969
+	Training Loss: 0.108662 	Validation Loss: 1.700953
+
+Epoch 75 - 2019-08-29T08:49:10.318035
+	Training Loss: 0.107180 	Validation Loss: 1.734088
+
+Epoch 76 - 2019-08-29T08:50:34.278893
+	Training Loss: 0.105891 	Validation Loss: 1.740100
+
+Epoch 77 - 2019-08-29T08:51:58.229913
+	Training Loss: 0.103975 	Validation Loss: 1.734079
+
+Epoch 78 - 2019-08-29T08:53:22.206160
+	Training Loss: 0.103035 	Validation Loss: 1.750380
+
+Epoch 79 - 2019-08-29T08:54:46.147318
+	Training Loss: 0.100672 	Validation Loss: 1.768090
+
+Epoch 80 - 2019-08-29T08:56:10.125652
+	Training Loss: 0.095936 	Validation Loss: 1.691338
+
+Epoch 81 - 2019-08-29T08:57:34.105973
+	Training Loss: 0.092674 	Validation Loss: 1.787714
+
+Epoch 82 - 2019-08-29T08:58:58.080004
+	Training Loss: 0.092199 	Validation Loss: 1.805092
+
+Epoch 83 - 2019-08-29T09:00:22.025718
+	Training Loss: 0.092349 	Validation Loss: 1.736552
+
+Epoch 84 - 2019-08-29T09:01:46.010069
+	Training Loss: 0.086947 	Validation Loss: 1.718592
+
+Epoch 85 - 2019-08-29T09:03:09.947441
+	Training Loss: 0.083480 	Validation Loss: 1.774516
+
+Epoch 86 - 2019-08-29T09:04:33.910038
+	Training Loss: 0.083257 	Validation Loss: 1.824795
+
+Epoch 87 - 2019-08-29T09:05:57.867268
+	Training Loss: 0.079901 	Validation Loss: 1.813609
+
+Epoch 88 - 2019-08-29T09:07:21.798915
+	Training Loss: 0.079075 	Validation Loss: 1.784986
+
+Epoch 89 - 2019-08-29T09:08:45.722198
+	Training Loss: 0.077107 	Validation Loss: 1.846905
+
+Epoch 90 - 2019-08-29T09:10:09.703713
+	Training Loss: 0.073345 	Validation Loss: 1.783666
+
+Epoch 91 - 2019-08-29T09:11:33.648994
+	Training Loss: 0.072551 	Validation Loss: 1.788955
+
+Epoch 92 - 2019-08-29T09:12:57.584752
+	Training Loss: 0.072606 	Validation Loss: 1.847886
+
+Epoch 93 - 2019-08-29T09:14:21.572124
+	Training Loss: 0.069061 	Validation Loss: 1.878162
+
+Epoch 94 - 2019-08-29T09:15:45.539577
+	Training Loss: 0.068927 	Validation Loss: 1.836924
+
+Epoch 95 - 2019-08-29T09:17:09.534414
+	Training Loss: 0.065524 	Validation Loss: 1.847268
+
+Epoch 96 - 2019-08-29T09:18:33.494051
+	Training Loss: 0.067117 	Validation Loss: 1.872201
+
+Epoch 97 - 2019-08-29T09:19:57.461184
+	Training Loss: 0.062826 	Validation Loss: 1.836288
+
+Epoch 98 - 2019-08-29T09:21:21.443672
+	Training Loss: 0.061359 	Validation Loss: 1.897722
+
+Epoch 99 - 2019-08-29T09:22:45.455054
+	Training Loss: 0.060720 	Validation Loss: 1.964679
+
+Epoch 100 - 2019-08-29T09:24:09.414630
+	Training Loss: 0.060466 	Validation Loss: 1.963435
+
+Epoch 101 - 2019-08-29T09:25:33.388454
+	Training Loss: 0.056452 	Validation Loss: 1.847243
+
+Epoch 102 - 2019-08-29T09:26:57.393969
+	Training Loss: 0.056404 	Validation Loss: 1.898938
+
+Epoch 103 - 2019-08-29T09:28:21.361396
+	Training Loss: 0.056794 	Validation Loss: 1.943828
+
+Epoch 104 - 2019-08-29T09:29:45.315793
+	Training Loss: 0.053516 	Validation Loss: 1.906284
+
+Epoch 105 - 2019-08-29T09:31:09.270421
+	Training Loss: 0.052162 	Validation Loss: 1.988545
+
+Epoch 106 - 2019-08-29T09:32:33.258499
+	Training Loss: 0.051313 	Validation Loss: 1.965363
+
+Epoch 107 - 2019-08-29T09:33:57.221745
+	Training Loss: 0.052285 	Validation Loss: 1.859169
+
+Epoch 108 - 2019-08-29T09:35:21.203588
+	Training Loss: 0.050047 	Validation Loss: 1.906853
+
+Epoch 109 - 2019-08-29T09:36:45.183629
+	Training Loss: 0.047563 	Validation Loss: 1.931905
+
+Epoch 110 - 2019-08-29T09:38:09.122501
+	Training Loss: 0.048257 	Validation Loss: 1.965502
+
+Epoch 111 - 2019-08-29T09:39:33.144192
+	Training Loss: 0.045624 	Validation Loss: 1.924551
+
+Epoch 112 - 2019-08-29T09:40:57.136299
+	Training Loss: 0.045207 	Validation Loss: 1.969348
+
+Epoch 113 - 2019-08-29T09:42:21.096893
+	Training Loss: 0.044594 	Validation Loss: 1.921139
+
+Epoch 114 - 2019-08-29T09:43:45.093081
+	Training Loss: 0.043087 	Validation Loss: 2.034655
+
+Epoch 115 - 2019-08-29T09:45:09.108158
+	Training Loss: 0.043469 	Validation Loss: 2.028129
+
+Epoch 116 - 2019-08-29T09:46:33.079297
+	Training Loss: 0.042388 	Validation Loss: 1.978458
+
+Epoch 117 - 2019-08-29T09:47:57.035961
+	Training Loss: 0.042000 	Validation Loss: 1.887679
+
+Epoch 118 - 2019-08-29T09:49:21.007821
+	Training Loss: 0.039959 	Validation Loss: 1.911902
+
+Epoch 119 - 2019-08-29T09:50:44.962735
+	Training Loss: 0.041456 	Validation Loss: 1.847058
+
+Epoch 120 - 2019-08-29T09:52:08.957077
+	Training Loss: 0.039117 	Validation Loss: 1.949861
+
+Epoch 121 - 2019-08-29T09:53:32.911317
+	Training Loss: 0.038336 	Validation Loss: 1.925642
+
+Epoch 122 - 2019-08-29T09:54:56.882213
+	Training Loss: 0.037960 	Validation Loss: 1.911480
+
+Epoch 123 - 2019-08-29T09:56:20.848511
+	Training Loss: 0.037169 	Validation Loss: 1.922201
+
+Epoch 124 - 2019-08-29T09:57:44.814755
+	Training Loss: 0.036046 	Validation Loss: 1.906586
+
+Epoch 125 - 2019-08-29T09:59:08.801724
+	Training Loss: 0.035135 	Validation Loss: 1.830129
+
+Epoch 126 - 2019-08-29T10:00:32.784795
+	Training Loss: 0.035472 	Validation Loss: 1.974939
+
+Epoch 127 - 2019-08-29T10:01:56.771838
+	Training Loss: 0.036593 	Validation Loss: 1.948200
+
+Epoch 128 - 2019-08-29T10:03:20.761471
+	Training Loss: 0.034191 	Validation Loss: 1.855380
+
+Epoch 129 - 2019-08-29T10:04:44.717458
+	Training Loss: 0.036059 	Validation Loss: 2.040433
+
+Epoch 130 - 2019-08-29T10:06:08.680472
+	Training Loss: 0.033350 	Validation Loss: 1.833936
+
+Epoch 131 - 2019-08-29T10:07:32.611805
+	Training Loss: 0.033719 	Validation Loss: 1.941528
+
+Epoch 132 - 2019-08-29T10:08:56.572254
+	Training Loss: 0.032943 	Validation Loss: 1.855589
+
+Epoch 133 - 2019-08-29T10:10:20.515579
+	Training Loss: 0.032287 	Validation Loss: 1.867501
+
+Epoch 134 - 2019-08-29T10:11:44.544755
+	Training Loss: 0.032792 	Validation Loss: 1.965381
+
+Epoch 135 - 2019-08-29T10:13:08.521505
+	Training Loss: 0.032576 	Validation Loss: 1.959925
+
+Epoch 136 - 2019-08-29T10:14:32.448735
+	Training Loss: 0.030499 	Validation Loss: 1.755334
+
+Epoch 137 - 2019-08-29T10:15:56.434692
+	Training Loss: 0.029429 	Validation Loss: 1.713473
+
+Epoch 138 - 2019-08-29T10:17:20.400240
+	Training Loss: 0.030430 	Validation Loss: 1.845982
+
+Epoch 139 - 2019-08-29T10:18:44.400884
+	Training Loss: 0.030716 	Validation Loss: 1.817488
+
+Epoch 140 - 2019-08-29T10:20:08.373062
+	Training Loss: 0.028874 	Validation Loss: 1.869463
+
+Epoch 141 - 2019-08-29T10:21:32.312011
+	Training Loss: 0.030164 	Validation Loss: 1.960012
+
+Epoch 142 - 2019-08-29T10:22:56.298788
+	Training Loss: 0.027699 	Validation Loss: 1.714355
+
+Epoch 143 - 2019-08-29T10:24:20.250486
+	Training Loss: 0.028499 	Validation Loss: 1.712760
+
+Epoch 144 - 2019-08-29T10:25:44.199720
+	Training Loss: 0.026606 	Validation Loss: 1.834309
+
+Epoch 145 - 2019-08-29T10:27:08.190190
+	Training Loss: 0.026105 	Validation Loss: 1.834198
+
+Epoch 146 - 2019-08-29T10:28:32.137669
+	Training Loss: 0.027408 	Validation Loss: 1.724257
+
+Epoch 147 - 2019-08-29T10:29:56.137122
+	Training Loss: 0.026036 	Validation Loss: 1.688910
+
+Epoch 148 - 2019-08-29T10:31:20.106031
+	Training Loss: 0.026345 	Validation Loss: 1.770354
+
+Epoch 149 - 2019-08-29T10:32:44.108902
+	Training Loss: 0.025056 	Validation Loss: 1.706536
+
+Epoch 150 - 2019-08-29T10:34:08.074273
+	Training Loss: 0.025258 	Validation Loss: 1.725429
+
+Epoch 151 - 2019-08-29T10:35:32.025775
+	Training Loss: 0.026576 	Validation Loss: 1.726392
+
+Epoch 152 - 2019-08-29T10:36:55.987285
+	Training Loss: 0.025069 	Validation Loss: 1.696966
+
+Epoch 153 - 2019-08-29T10:38:19.933181
+	Training Loss: 0.025628 	Validation Loss: 1.795059
+
+Epoch 154 - 2019-08-29T10:39:43.892279
+	Training Loss: 0.024443 	Validation Loss: 1.567233
+
+Epoch 155 - 2019-08-29T10:41:07.853096
+	Training Loss: 0.025304 	Validation Loss: 1.716027
+
+Epoch 156 - 2019-08-29T10:42:31.830355
+	Training Loss: 0.024345 	Validation Loss: 1.658012
+
+Epoch 157 - 2019-08-29T10:43:55.834529
+	Training Loss: 0.023941 	Validation Loss: 1.590642
+
+Epoch 158 - 2019-08-29T10:45:19.820270
+	Training Loss: 0.024317 	Validation Loss: 1.763386
+
+Epoch 159 - 2019-08-29T10:46:43.819649
+	Training Loss: 0.024104 	Validation Loss: 1.629906
+
+Epoch 160 - 2019-08-29T10:48:07.795720
+	Training Loss: 0.023580 	Validation Loss: 1.507996
+
+Epoch 161 - 2019-08-29T10:49:31.763859
+	Training Loss: 0.022391 	Validation Loss: 1.619761
+
+Epoch 162 - 2019-08-29T10:50:55.744812
+	Training Loss: 0.022287 	Validation Loss: 1.580009
+
+Epoch 163 - 2019-08-29T10:52:19.702128
+	Training Loss: 0.022828 	Validation Loss: 1.636665
+
+Epoch 164 - 2019-08-29T10:53:43.679584
+	Training Loss: 0.021996 	Validation Loss: 1.607359
+
+Epoch 165 - 2019-08-29T10:55:07.617856
+	Training Loss: 0.022189 	Validation Loss: 1.570899
+
+Epoch 166 - 2019-08-29T10:56:31.617489
+	Training Loss: 0.022782 	Validation Loss: 1.646926
+
+Epoch 167 - 2019-08-29T10:57:55.627253
+	Training Loss: 0.021979 	Validation Loss: 1.609499
+
+Epoch 168 - 2019-08-29T10:59:19.619832
+	Training Loss: 0.022351 	Validation Loss: 1.604061
+
+Epoch 169 - 2019-08-29T11:00:43.644813
+	Training Loss: 0.022406 	Validation Loss: 1.370891
+	Validation loss decreased (1.479581 --> 1.370891).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 170 - 2019-08-29T11:02:08.615537
+	Training Loss: 0.021122 	Validation Loss: 1.498459
+
+Epoch 171 - 2019-08-29T11:03:32.613193
+	Training Loss: 0.021282 	Validation Loss: 1.478459
+
+Epoch 172 - 2019-08-29T11:04:56.590377
+	Training Loss: 0.021557 	Validation Loss: 1.586328
+
+Epoch 173 - 2019-08-29T11:06:20.553329
+	Training Loss: 0.020336 	Validation Loss: 1.417605
+
+Epoch 174 - 2019-08-29T11:07:44.525158
+	Training Loss: 0.020429 	Validation Loss: 1.544275
+
+Epoch 175 - 2019-08-29T11:09:08.529734
+	Training Loss: 0.020568 	Validation Loss: 1.440032
+
+Epoch 176 - 2019-08-29T11:10:32.499113
+	Training Loss: 0.019822 	Validation Loss: 1.348801
+	Validation loss decreased (1.370891 --> 1.348801).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 177 - 2019-08-29T11:11:57.499261
+	Training Loss: 0.020477 	Validation Loss: 1.432566
+
+Epoch 178 - 2019-08-29T11:13:21.465547
+	Training Loss: 0.019851 	Validation Loss: 1.459742
+
+Epoch 179 - 2019-08-29T11:14:45.427768
+	Training Loss: 0.020968 	Validation Loss: 1.591818
+
+Epoch 180 - 2019-08-29T11:16:09.438167
+	Training Loss: 0.019879 	Validation Loss: 1.292435
+	Validation loss decreased (1.348801 --> 1.292435).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 181 - 2019-08-29T11:17:34.416410
+	Training Loss: 0.018217 	Validation Loss: 1.242746
+	Validation loss decreased (1.292435 --> 1.242746).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 182 - 2019-08-29T11:18:59.359207
+	Training Loss: 0.018642 	Validation Loss: 1.241426
+	Validation loss decreased (1.242746 --> 1.241426).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 183 - 2019-08-29T11:20:24.343970
+	Training Loss: 0.018448 	Validation Loss: 1.341705
+
+Epoch 184 - 2019-08-29T11:21:48.345557
+	Training Loss: 0.018772 	Validation Loss: 1.288238
+
+Epoch 185 - 2019-08-29T11:23:12.348746
+	Training Loss: 0.017897 	Validation Loss: 1.289649
+
+Epoch 186 - 2019-08-29T11:24:36.332062
+	Training Loss: 0.017785 	Validation Loss: 1.298066
+
+Epoch 187 - 2019-08-29T11:26:00.310903
+	Training Loss: 0.018080 	Validation Loss: 1.302993
+
+Epoch 188 - 2019-08-29T11:27:24.296079
+	Training Loss: 0.019829 	Validation Loss: 1.535509
+
+Epoch 189 - 2019-08-29T11:28:48.265122
+	Training Loss: 0.018731 	Validation Loss: 1.217306
+	Validation loss decreased (1.241426 --> 1.217306).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 190 - 2019-08-29T11:30:13.247629
+	Training Loss: 0.018565 	Validation Loss: 1.286689
+
+Epoch 191 - 2019-08-29T11:31:37.224270
+	Training Loss: 0.018730 	Validation Loss: 1.306423
+
+Epoch 192 - 2019-08-29T11:33:01.200171
+	Training Loss: 0.019604 	Validation Loss: 1.353002
+
+Epoch 193 - 2019-08-29T11:34:25.206994
+	Training Loss: 0.017327 	Validation Loss: 1.252724
+
+Epoch 194 - 2019-08-29T11:35:49.205695
+	Training Loss: 0.018724 	Validation Loss: 1.245774
+
+Epoch 195 - 2019-08-29T11:37:13.189955
+	Training Loss: 0.017514 	Validation Loss: 1.231964
+
+Epoch 196 - 2019-08-29T11:38:37.139024
+	Training Loss: 0.016852 	Validation Loss: 1.165067
+	Validation loss decreased (1.217306 --> 1.165067).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 197 - 2019-08-29T11:40:02.065916
+	Training Loss: 0.017801 	Validation Loss: 1.142340
+	Validation loss decreased (1.165067 --> 1.142340).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 198 - 2019-08-29T11:41:27.047774
+	Training Loss: 0.016708 	Validation Loss: 1.100920
+	Validation loss decreased (1.142340 --> 1.100920).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 199 - 2019-08-29T11:42:52.061767
+	Training Loss: 0.017155 	Validation Loss: 1.195266
+
+Epoch 200 - 2019-08-29T11:44:16.024922
+	Training Loss: 0.018480 	Validation Loss: 1.257209
+
+Epoch 201 - 2019-08-29T11:45:39.997431
+	Training Loss: 0.016670 	Validation Loss: 1.144679
+
+Epoch 202 - 2019-08-29T11:47:03.987541
+	Training Loss: 0.016425 	Validation Loss: 1.193826
+
+Epoch 203 - 2019-08-29T11:48:27.975657
+	Training Loss: 0.017577 	Validation Loss: 1.136865
+
+Epoch 204 - 2019-08-29T11:49:51.932911
+	Training Loss: 0.016054 	Validation Loss: 1.078323
+	Validation loss decreased (1.100920 --> 1.078323).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 205 - 2019-08-29T11:51:16.911724
+	Training Loss: 0.016174 	Validation Loss: 1.111943
+
+Epoch 206 - 2019-08-29T11:52:40.919166
+	Training Loss: 0.014857 	Validation Loss: 1.051782
+	Validation loss decreased (1.078323 --> 1.051782).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 207 - 2019-08-29T11:54:05.869984
+	Training Loss: 0.016141 	Validation Loss: 1.089428
+
+Epoch 208 - 2019-08-29T11:55:29.894690
+	Training Loss: 0.015434 	Validation Loss: 1.031384
+	Validation loss decreased (1.051782 --> 1.031384).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 209 - 2019-08-29T11:56:54.884103
+	Training Loss: 0.015554 	Validation Loss: 0.959339
+	Validation loss decreased (1.031384 --> 0.959339).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 210 - 2019-08-29T11:58:19.872175
+	Training Loss: 0.015225 	Validation Loss: 0.997740
+
+Epoch 211 - 2019-08-29T11:59:43.844530
+	Training Loss: 0.015619 	Validation Loss: 1.092165
+
+Epoch 212 - 2019-08-29T12:01:07.808789
+	Training Loss: 0.015087 	Validation Loss: 0.919635
+	Validation loss decreased (0.959339 --> 0.919635).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 213 - 2019-08-29T12:02:32.769912
+	Training Loss: 0.015098 	Validation Loss: 1.067653
+
+Epoch 214 - 2019-08-29T12:03:56.712681
+	Training Loss: 0.015464 	Validation Loss: 1.038061
+
+Epoch 215 - 2019-08-29T12:05:20.654374
+	Training Loss: 0.015491 	Validation Loss: 0.970413
+
+Epoch 216 - 2019-08-29T12:06:44.640858
+	Training Loss: 0.015662 	Validation Loss: 1.040440
+
+Epoch 217 - 2019-08-29T12:08:08.637454
+	Training Loss: 0.014804 	Validation Loss: 0.952270
+
+Epoch 218 - 2019-08-29T12:09:32.607923
+	Training Loss: 0.014590 	Validation Loss: 0.974817
+
+Epoch 219 - 2019-08-29T12:10:56.554320
+	Training Loss: 0.013823 	Validation Loss: 0.815677
+	Validation loss decreased (0.919635 --> 0.815677).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 220 - 2019-08-29T12:12:21.491921
+	Training Loss: 0.013937 	Validation Loss: 0.794546
+	Validation loss decreased (0.815677 --> 0.794546).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 221 - 2019-08-29T12:13:46.471591
+	Training Loss: 0.014293 	Validation Loss: 0.874088
+
+Epoch 222 - 2019-08-29T12:15:10.506822
+	Training Loss: 0.014124 	Validation Loss: 0.944908
+
+Epoch 223 - 2019-08-29T12:16:34.494361
+	Training Loss: 0.014646 	Validation Loss: 0.868982
+
+Epoch 224 - 2019-08-29T12:17:58.440373
+	Training Loss: 0.013921 	Validation Loss: 0.940062
+
+Epoch 225 - 2019-08-29T12:19:22.424507
+	Training Loss: 0.014655 	Validation Loss: 0.858063
+
+Epoch 226 - 2019-08-29T12:20:46.428747
+	Training Loss: 0.013544 	Validation Loss: 0.791995
+	Validation loss decreased (0.794546 --> 0.791995).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 227 - 2019-08-29T12:22:11.380916
+	Training Loss: 0.012729 	Validation Loss: 0.756505
+	Validation loss decreased (0.791995 --> 0.756505).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 228 - 2019-08-29T12:23:36.367608
+	Training Loss: 0.013425 	Validation Loss: 0.860770
+
+Epoch 229 - 2019-08-29T12:25:00.372634
+	Training Loss: 0.014104 	Validation Loss: 0.850828
+
+Epoch 230 - 2019-08-29T12:26:24.365092
+	Training Loss: 0.013465 	Validation Loss: 0.753822
+	Validation loss decreased (0.756505 --> 0.753822).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 231 - 2019-08-29T12:27:49.374769
+	Training Loss: 0.012974 	Validation Loss: 0.803129
+
+Epoch 232 - 2019-08-29T12:29:13.361081
+	Training Loss: 0.012482 	Validation Loss: 0.737429
+	Validation loss decreased (0.753822 --> 0.737429).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 233 - 2019-08-29T12:30:38.295002
+	Training Loss: 0.012799 	Validation Loss: 0.734582
+	Validation loss decreased (0.737429 --> 0.734582).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 234 - 2019-08-29T12:32:03.272917
+	Training Loss: 0.012681 	Validation Loss: 0.785556
+
+Epoch 235 - 2019-08-29T12:33:27.279330
+	Training Loss: 0.013897 	Validation Loss: 0.803005
+
+Epoch 236 - 2019-08-29T12:34:51.283209
+	Training Loss: 0.012788 	Validation Loss: 0.724343
+	Validation loss decreased (0.734582 --> 0.724343).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 237 - 2019-08-29T12:36:16.242072
+	Training Loss: 0.013037 	Validation Loss: 0.690491
+	Validation loss decreased (0.724343 --> 0.690491).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 238 - 2019-08-29T12:37:41.311839
+	Training Loss: 0.012896 	Validation Loss: 0.802328
+
+Epoch 239 - 2019-08-29T12:39:05.301217
+	Training Loss: 0.012064 	Validation Loss: 0.638237
+	Validation loss decreased (0.690491 --> 0.638237).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 240 - 2019-08-29T12:40:30.298618
+	Training Loss: 0.012905 	Validation Loss: 0.866873
+
+Epoch 241 - 2019-08-29T12:41:54.284482
+	Training Loss: 0.012649 	Validation Loss: 0.698678
+
+Epoch 242 - 2019-08-29T12:43:18.310319
+	Training Loss: 0.012001 	Validation Loss: 0.705105
+
+Epoch 243 - 2019-08-29T12:44:42.288185
+	Training Loss: 0.012610 	Validation Loss: 0.701425
+
+Epoch 244 - 2019-08-29T12:46:06.306353
+	Training Loss: 0.012448 	Validation Loss: 0.728633
+
+Epoch 245 - 2019-08-29T12:47:30.304902
+	Training Loss: 0.012115 	Validation Loss: 0.643873
+
+Epoch 246 - 2019-08-29T12:48:54.322914
+	Training Loss: 0.012120 	Validation Loss: 0.691668
+
+Epoch 247 - 2019-08-29T12:50:18.311108
+	Training Loss: 0.012070 	Validation Loss: 0.532736
+	Validation loss decreased (0.638237 --> 0.532736).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 248 - 2019-08-29T12:51:43.274924
+	Training Loss: 0.010843 	Validation Loss: 0.616399
+
+Epoch 249 - 2019-08-29T12:53:07.305896
+	Training Loss: 0.011252 	Validation Loss: 0.606969
+
+Epoch 250 - 2019-08-29T12:54:31.331442
+	Training Loss: 0.012444 	Validation Loss: 0.678427
+
+Epoch 251 - 2019-08-29T12:55:55.337375
+	Training Loss: 0.011116 	Validation Loss: 0.623782
+
+Epoch 252 - 2019-08-29T12:57:19.377858
+	Training Loss: 0.011271 	Validation Loss: 0.694315
+
+Epoch 253 - 2019-08-29T12:58:43.374348
+	Training Loss: 0.013328 	Validation Loss: 0.621345
+
+Epoch 254 - 2019-08-29T13:00:07.360378
+	Training Loss: 0.010897 	Validation Loss: 0.543236
+
+Epoch 255 - 2019-08-29T13:01:31.394947
+	Training Loss: 0.011540 	Validation Loss: 0.582441
+
+Epoch 256 - 2019-08-29T13:02:55.416699
+	Training Loss: 0.011257 	Validation Loss: 0.590013
+
+Epoch 257 - 2019-08-29T13:04:19.409141
+	Training Loss: 0.011551 	Validation Loss: 0.549209
+
+Epoch 258 - 2019-08-29T13:05:43.428943
+	Training Loss: 0.010953 	Validation Loss: 0.559866
+
+Epoch 259 - 2019-08-29T13:07:07.429134
+	Training Loss: 0.012249 	Validation Loss: 0.594305
+
+Epoch 260 - 2019-08-29T13:08:31.457754
+	Training Loss: 0.010834 	Validation Loss: 0.479103
+	Validation loss decreased (0.532736 --> 0.479103).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 261 - 2019-08-29T13:09:56.471080
+	Training Loss: 0.010736 	Validation Loss: 0.563696
+
+Epoch 262 - 2019-08-29T13:11:20.536613
+	Training Loss: 0.009970 	Validation Loss: 0.493915
+
+Epoch 263 - 2019-08-29T13:12:44.568555
+	Training Loss: 0.011401 	Validation Loss: 0.515234
+
+Epoch 264 - 2019-08-29T13:14:08.621279
+	Training Loss: 0.010305 	Validation Loss: 0.477172
+	Validation loss decreased (0.479103 --> 0.477172).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 265 - 2019-08-29T13:15:33.635077
+	Training Loss: 0.011478 	Validation Loss: 0.530985
+
+Epoch 266 - 2019-08-29T13:16:57.691467
+	Training Loss: 0.011649 	Validation Loss: 0.446209
+	Validation loss decreased (0.477172 --> 0.446209).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 267 - 2019-08-29T13:18:22.729954
+	Training Loss: 0.010546 	Validation Loss: 0.414570
+	Validation loss decreased (0.446209 --> 0.414570).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 268 - 2019-08-29T13:19:47.712844
+	Training Loss: 0.009880 	Validation Loss: 0.488197
+
+Epoch 269 - 2019-08-29T13:21:11.769788
+	Training Loss: 0.009733 	Validation Loss: 0.410779
+	Validation loss decreased (0.414570 --> 0.410779).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 270 - 2019-08-29T13:22:36.811793
+	Training Loss: 0.009895 	Validation Loss: 0.505484
+
+Epoch 271 - 2019-08-29T13:24:00.835084
+	Training Loss: 0.009916 	Validation Loss: 0.427216
+
+Epoch 272 - 2019-08-29T13:25:24.874070
+	Training Loss: 0.010321 	Validation Loss: 0.411987
+
+Epoch 273 - 2019-08-29T13:26:48.918710
+	Training Loss: 0.010063 	Validation Loss: 0.394201
+	Validation loss decreased (0.410779 --> 0.394201).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 274 - 2019-08-29T13:28:13.913010
+	Training Loss: 0.010321 	Validation Loss: 0.494104
+
+Epoch 275 - 2019-08-29T13:29:37.941851
+	Training Loss: 0.009721 	Validation Loss: 0.380720
+	Validation loss decreased (0.394201 --> 0.380720).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 276 - 2019-08-29T13:31:02.952153
+	Training Loss: 0.009673 	Validation Loss: 0.419501
+
+Epoch 277 - 2019-08-29T13:32:26.981399
+	Training Loss: 0.009982 	Validation Loss: 0.412291
+
+Epoch 278 - 2019-08-29T13:33:50.990484
+	Training Loss: 0.010391 	Validation Loss: 0.337832
+	Validation loss decreased (0.380720 --> 0.337832).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 279 - 2019-08-29T13:35:16.000908
+	Training Loss: 0.009121 	Validation Loss: 0.333314
+	Validation loss decreased (0.337832 --> 0.333314).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 280 - 2019-08-29T13:36:41.064007
+	Training Loss: 0.009537 	Validation Loss: 0.378604
+
+Epoch 281 - 2019-08-29T13:38:05.068014
+	Training Loss: 0.008883 	Validation Loss: 0.362637
+
+Epoch 282 - 2019-08-29T13:39:29.076483
+	Training Loss: 0.008799 	Validation Loss: 0.341694
+
+Epoch 283 - 2019-08-29T13:40:53.082411
+	Training Loss: 0.009279 	Validation Loss: 0.365233
+
+Epoch 284 - 2019-08-29T13:42:17.098054
+	Training Loss: 0.009787 	Validation Loss: 0.337479
+
+Epoch 285 - 2019-08-29T13:43:41.103707
+	Training Loss: 0.008567 	Validation Loss: 0.313132
+	Validation loss decreased (0.333314 --> 0.313132).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 286 - 2019-08-29T13:45:06.125203
+	Training Loss: 0.009755 	Validation Loss: 0.328975
+
+Epoch 287 - 2019-08-29T13:46:30.161604
+	Training Loss: 0.009219 	Validation Loss: 0.324291
+
+Epoch 288 - 2019-08-29T13:47:54.168813
+	Training Loss: 0.008617 	Validation Loss: 0.353060
+
+Epoch 289 - 2019-08-29T13:49:18.185099
+	Training Loss: 0.009816 	Validation Loss: 0.309391
+	Validation loss decreased (0.313132 --> 0.309391).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 290 - 2019-08-29T13:50:43.228131
+	Training Loss: 0.008624 	Validation Loss: 0.300320
+	Validation loss decreased (0.309391 --> 0.300320).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 291 - 2019-08-29T13:52:08.258443
+	Training Loss: 0.008695 	Validation Loss: 0.377471
+
+Epoch 292 - 2019-08-29T13:53:32.305857
+	Training Loss: 0.008653 	Validation Loss: 0.235671
+	Validation loss decreased (0.300320 --> 0.235671).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 293 - 2019-08-29T13:54:57.260284
+	Training Loss: 0.007904 	Validation Loss: 0.301760
+
+Epoch 294 - 2019-08-29T13:56:21.275546
+	Training Loss: 0.008245 	Validation Loss: 0.268986
+
+Epoch 295 - 2019-08-29T13:57:45.256039
+	Training Loss: 0.008244 	Validation Loss: 0.268828
+
+Epoch 296 - 2019-08-29T13:59:09.282658
+	Training Loss: 0.008555 	Validation Loss: 0.254478
+
+Epoch 297 - 2019-08-29T14:00:33.280497
+	Training Loss: 0.008803 	Validation Loss: 0.243079
+
+Epoch 298 - 2019-08-29T14:01:57.276542
+	Training Loss: 0.008773 	Validation Loss: 0.285254
+
+Epoch 299 - 2019-08-29T14:03:21.290494
+	Training Loss: 0.008311 	Validation Loss: 0.264213
+
+Epoch 300 - 2019-08-29T14:04:45.261309
+	Training Loss: 0.007726 	Validation Loss: 0.196985
+	Validation loss decreased (0.235671 --> 0.196985).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 301 - 2019-08-29T14:06:10.074670
+	Training Loss: 0.006997 	Validation Loss: 0.179001
+	Validation loss decreased (0.196985 --> 0.179001).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 302 - 2019-08-29T14:07:34.921934
+	Training Loss: 0.007504 	Validation Loss: 0.239516
+
+Epoch 303 - 2019-08-29T14:08:58.933452
+	Training Loss: 0.008226 	Validation Loss: 0.213587
+
+Epoch 304 - 2019-08-29T14:10:22.925446
+	Training Loss: 0.008868 	Validation Loss: 0.273410
+
+Epoch 305 - 2019-08-29T14:11:46.894275
+	Training Loss: 0.007858 	Validation Loss: 0.203942
+
+Epoch 306 - 2019-08-29T14:13:10.860298
+	Training Loss: 0.008402 	Validation Loss: 0.306928
+
+Epoch 307 - 2019-08-29T14:14:34.902753
+	Training Loss: 0.007530 	Validation Loss: 0.201007
+
+Epoch 308 - 2019-08-29T14:15:58.943070
+	Training Loss: 0.007129 	Validation Loss: 0.174319
+	Validation loss decreased (0.179001 --> 0.174319).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 309 - 2019-08-29T14:17:23.957266
+	Training Loss: 0.007619 	Validation Loss: 0.188828
+
+Epoch 310 - 2019-08-29T14:18:47.975242
+	Training Loss: 0.007730 	Validation Loss: 0.170985
+	Validation loss decreased (0.174319 --> 0.170985).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 311 - 2019-08-29T14:20:12.992717
+	Training Loss: 0.007514 	Validation Loss: 0.169283
+	Validation loss decreased (0.170985 --> 0.169283).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 312 - 2019-08-29T14:21:38.036482
+	Training Loss: 0.006402 	Validation Loss: 0.129548
+	Validation loss decreased (0.169283 --> 0.129548).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 313 - 2019-08-29T14:23:03.074394
+	Training Loss: 0.006950 	Validation Loss: 0.145447
+
+Epoch 314 - 2019-08-29T14:24:27.095927
+	Training Loss: 0.006992 	Validation Loss: 0.158011
+
+Epoch 315 - 2019-08-29T14:25:51.137460
+	Training Loss: 0.006679 	Validation Loss: 0.142458
+
+Epoch 316 - 2019-08-29T14:27:15.153842
+	Training Loss: 0.006398 	Validation Loss: 0.184731
+
+Epoch 317 - 2019-08-29T14:28:39.154417
+	Training Loss: 0.007221 	Validation Loss: 0.133020
+
+Epoch 318 - 2019-08-29T14:30:03.138472
+	Training Loss: 0.006786 	Validation Loss: 0.115503
+	Validation loss decreased (0.129548 --> 0.115503).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 319 - 2019-08-29T14:31:28.138405
+	Training Loss: 0.007450 	Validation Loss: 0.135052
+
+Epoch 320 - 2019-08-29T14:32:52.128764
+	Training Loss: 0.006853 	Validation Loss: 0.121663
+
+Epoch 321 - 2019-08-29T14:34:16.175251
+	Training Loss: 0.006572 	Validation Loss: 0.168167
+
+Epoch 322 - 2019-08-29T14:35:40.202380
+	Training Loss: 0.006781 	Validation Loss: 0.142785
+
+Epoch 323 - 2019-08-29T14:37:04.221828
+	Training Loss: 0.007035 	Validation Loss: 0.083516
+	Validation loss decreased (0.115503 --> 0.083516).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 324 - 2019-08-29T14:38:29.246402
+	Training Loss: 0.007101 	Validation Loss: 0.133150
+
+Epoch 325 - 2019-08-29T14:39:53.240884
+	Training Loss: 0.006910 	Validation Loss: 0.074949
+	Validation loss decreased (0.083516 --> 0.074949).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 326 - 2019-08-29T14:41:18.268247
+	Training Loss: 0.006336 	Validation Loss: 0.107927
+
+Epoch 327 - 2019-08-29T14:42:42.295380
+	Training Loss: 0.007062 	Validation Loss: 0.102584
+
+Epoch 328 - 2019-08-29T14:44:06.303907
+	Training Loss: 0.006339 	Validation Loss: 0.114018
+
+Epoch 329 - 2019-08-29T14:45:30.328292
+	Training Loss: 0.005790 	Validation Loss: 0.075141
+
+Epoch 330 - 2019-08-29T14:46:54.329751
+	Training Loss: 0.005720 	Validation Loss: 0.071302
+	Validation loss decreased (0.074949 --> 0.071302).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 331 - 2019-08-29T14:48:19.355934
+	Training Loss: 0.006829 	Validation Loss: 0.136748
+
+Epoch 332 - 2019-08-29T14:49:43.374564
+	Training Loss: 0.007408 	Validation Loss: 0.117521
+
+Epoch 333 - 2019-08-29T14:51:07.429879
+	Training Loss: 0.006353 	Validation Loss: 0.096742
+
+Epoch 334 - 2019-08-29T14:52:31.468329
+	Training Loss: 0.006561 	Validation Loss: 0.105214
+
+Epoch 335 - 2019-08-29T14:53:55.480993
+	Training Loss: 0.006119 	Validation Loss: 0.067462
+	Validation loss decreased (0.071302 --> 0.067462).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 336 - 2019-08-29T14:55:20.336291
+	Training Loss: 0.006450 	Validation Loss: 0.059797
+	Validation loss decreased (0.067462 --> 0.059797).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 337 - 2019-08-29T14:56:45.368504
+	Training Loss: 0.005785 	Validation Loss: 0.077247
+
+Epoch 338 - 2019-08-29T14:58:09.420828
+	Training Loss: 0.005810 	Validation Loss: 0.087596
+
+Epoch 339 - 2019-08-29T14:59:33.410088
+	Training Loss: 0.005571 	Validation Loss: 0.077053
+
+Epoch 340 - 2019-08-29T15:00:57.430807
+	Training Loss: 0.005771 	Validation Loss: 0.049966
+	Validation loss decreased (0.059797 --> 0.049966).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 341 - 2019-08-29T15:02:22.448505
+	Training Loss: 0.005436 	Validation Loss: 0.086994
+
+Epoch 342 - 2019-08-29T15:03:46.451920
+	Training Loss: 0.006649 	Validation Loss: 0.056254
+
+Epoch 343 - 2019-08-29T15:05:10.469397
+	Training Loss: 0.005267 	Validation Loss: 0.057103
+
+Epoch 344 - 2019-08-29T15:06:34.477180
+	Training Loss: 0.006185 	Validation Loss: 0.036739
+	Validation loss decreased (0.049966 --> 0.036739).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 345 - 2019-08-29T15:07:59.519491
+	Training Loss: 0.005483 	Validation Loss: 0.064602
+
+Epoch 346 - 2019-08-29T15:09:23.553725
+	Training Loss: 0.005312 	Validation Loss: 0.066913
+
+Epoch 347 - 2019-08-29T15:10:47.579097
+	Training Loss: 0.005760 	Validation Loss: 0.052262
+
+Epoch 348 - 2019-08-29T15:12:11.599049
+	Training Loss: 0.006215 	Validation Loss: 0.040548
+
+Epoch 349 - 2019-08-29T15:13:35.624831
+	Training Loss: 0.005157 	Validation Loss: 0.052906
+
+Epoch 350 - 2019-08-29T15:14:59.640723
+	Training Loss: 0.005502 	Validation Loss: 0.029514
+	Validation loss decreased (0.036739 --> 0.029514).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 351 - 2019-08-29T15:16:24.638433
+	Training Loss: 0.005511 	Validation Loss: 0.051676
+
+Epoch 352 - 2019-08-29T15:17:48.697301
+	Training Loss: 0.005258 	Validation Loss: 0.064924
+
+Epoch 353 - 2019-08-29T15:19:12.688442
+	Training Loss: 0.005688 	Validation Loss: 0.037274
+
+Epoch 354 - 2019-08-29T15:20:36.713421
+	Training Loss: 0.005230 	Validation Loss: 0.029633
+
+Epoch 355 - 2019-08-29T15:22:00.705835
+	Training Loss: 0.005871 	Validation Loss: 0.036423
+
+Epoch 356 - 2019-08-29T15:23:24.701172
+	Training Loss: 0.004998 	Validation Loss: 0.029294
+	Validation loss decreased (0.029514 --> 0.029294).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 357 - 2019-08-29T15:24:49.715119
+	Training Loss: 0.004846 	Validation Loss: 0.024934
+	Validation loss decreased (0.029294 --> 0.024934).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 358 - 2019-08-29T15:26:14.764601
+	Training Loss: 0.004793 	Validation Loss: 0.043678
+
+Epoch 359 - 2019-08-29T15:27:38.818065
+	Training Loss: 0.005095 	Validation Loss: 0.040889
+
+Epoch 360 - 2019-08-29T15:29:02.862589
+	Training Loss: 0.005133 	Validation Loss: 0.023085
+	Validation loss decreased (0.024934 --> 0.023085).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 361 - 2019-08-29T15:30:27.886838
+	Training Loss: 0.004552 	Validation Loss: 0.024461
+
+Epoch 362 - 2019-08-29T15:31:51.934450
+	Training Loss: 0.005135 	Validation Loss: 0.015168
+	Validation loss decreased (0.023085 --> 0.015168).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 363 - 2019-08-29T15:33:17.003096
+	Training Loss: 0.004682 	Validation Loss: 0.048353
+
+Epoch 364 - 2019-08-29T15:34:41.036416
+	Training Loss: 0.004575 	Validation Loss: 0.016076
+
+Epoch 365 - 2019-08-29T15:36:05.023466
+	Training Loss: 0.005003 	Validation Loss: 0.035944
+
+Epoch 366 - 2019-08-29T15:37:29.060403
+	Training Loss: 0.004918 	Validation Loss: 0.011096
+	Validation loss decreased (0.015168 --> 0.011096).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 367 - 2019-08-29T15:38:54.086179
+	Training Loss: 0.003744 	Validation Loss: 0.011513
+
+Epoch 368 - 2019-08-29T15:40:18.132351
+	Training Loss: 0.003944 	Validation Loss: 0.014173
+
+Epoch 369 - 2019-08-29T15:41:42.162463
+	Training Loss: 0.004398 	Validation Loss: 0.019065
+
+Epoch 370 - 2019-08-29T15:43:06.205482
+	Training Loss: 0.004373 	Validation Loss: 0.017167
+
+Epoch 371 - 2019-08-29T15:44:30.204705
+	Training Loss: 0.004218 	Validation Loss: 0.018284
+
+Epoch 372 - 2019-08-29T15:45:54.240685
+	Training Loss: 0.004743 	Validation Loss: 0.013315
+
+Epoch 373 - 2019-08-29T15:47:18.226369
+	Training Loss: 0.004386 	Validation Loss: 0.014711
+
+Epoch 374 - 2019-08-29T15:48:42.207140
+	Training Loss: 0.005553 	Validation Loss: 0.031252
+
+Epoch 375 - 2019-08-29T15:50:06.225249
+	Training Loss: 0.004495 	Validation Loss: 0.011782
+
+Epoch 376 - 2019-08-29T15:51:30.257800
+	Training Loss: 0.003975 	Validation Loss: 0.014689
+
+Epoch 377 - 2019-08-29T15:52:54.302467
+	Training Loss: 0.003643 	Validation Loss: 0.017293
+
+Epoch 378 - 2019-08-29T15:54:18.343716
+	Training Loss: 0.004588 	Validation Loss: 0.007240
+	Validation loss decreased (0.011096 --> 0.007240).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 379 - 2019-08-29T15:55:43.370741
+	Training Loss: 0.003560 	Validation Loss: 0.015781
+
+Epoch 380 - 2019-08-29T15:57:07.411755
+	Training Loss: 0.003604 	Validation Loss: 0.010461
+
+Epoch 381 - 2019-08-29T15:58:31.440053
+	Training Loss: 0.004176 	Validation Loss: 0.005742
+	Validation loss decreased (0.007240 --> 0.005742).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 382 - 2019-08-29T15:59:56.437740
+	Training Loss: 0.004058 	Validation Loss: 0.006679
+
+Epoch 383 - 2019-08-29T16:01:20.485418
+	Training Loss: 0.003520 	Validation Loss: 0.007316
+
+Epoch 384 - 2019-08-29T16:02:44.482049
+	Training Loss: 0.004843 	Validation Loss: 0.011578
+
+Epoch 385 - 2019-08-29T16:04:08.502872
+	Training Loss: 0.004397 	Validation Loss: 0.006870
+
+Epoch 386 - 2019-08-29T16:05:32.525726
+	Training Loss: 0.004020 	Validation Loss: 0.007648
+
+Epoch 387 - 2019-08-29T16:06:56.554261
+	Training Loss: 0.003548 	Validation Loss: 0.006487
+
+Epoch 388 - 2019-08-29T16:08:20.609936
+	Training Loss: 0.003248 	Validation Loss: 0.006502
+
+Epoch 389 - 2019-08-29T16:09:44.616078
+	Training Loss: 0.004055 	Validation Loss: 0.005842
+
+Epoch 390 - 2019-08-29T16:11:08.640246
+	Training Loss: 0.003766 	Validation Loss: 0.007448
+
+Epoch 391 - 2019-08-29T16:12:32.625969
+	Training Loss: 0.002946 	Validation Loss: 0.004873
+	Validation loss decreased (0.005742 --> 0.004873).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 392 - 2019-08-29T16:13:57.642172
+	Training Loss: 0.004149 	Validation Loss: 0.004269
+	Validation loss decreased (0.004873 --> 0.004269).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 393 - 2019-08-29T16:15:22.689005
+	Training Loss: 0.003353 	Validation Loss: 0.003213
+	Validation loss decreased (0.004269 --> 0.003213).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 394 - 2019-08-29T16:16:47.717973
+	Training Loss: 0.004050 	Validation Loss: 0.005707
+
+Epoch 395 - 2019-08-29T16:18:11.722348
+	Training Loss: 0.003052 	Validation Loss: 0.002629
+	Validation loss decreased (0.003213 --> 0.002629).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 396 - 2019-08-29T16:19:36.808836
+	Training Loss: 0.003483 	Validation Loss: 0.008033
+
+Epoch 397 - 2019-08-29T16:21:00.848043
+	Training Loss: 0.003567 	Validation Loss: 0.005926
+
+Epoch 398 - 2019-08-29T16:22:24.872744
+	Training Loss: 0.003294 	Validation Loss: 0.004358
+
+Epoch 399 - 2019-08-29T16:23:48.879950
+	Training Loss: 0.002943 	Validation Loss: 0.001716
+	Validation loss decreased (0.002629 --> 0.001716).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 400 - 2019-08-29T16:25:13.886274
+	Training Loss: 0.002812 	Validation Loss: 0.001915
+
+Epoch 401 - 2019-08-29T16:26:37.920857
+	Training Loss: 0.002904 	Validation Loss: 0.005455
+
+Epoch 402 - 2019-08-29T16:28:01.968098
+	Training Loss: 0.003701 	Validation Loss: 0.002210
+
+Epoch 403 - 2019-08-29T16:29:26.019252
+	Training Loss: 0.002684 	Validation Loss: 0.003362
+
+Epoch 404 - 2019-08-29T16:30:50.039515
+	Training Loss: 0.003380 	Validation Loss: 0.002136
+
+Epoch 405 - 2019-08-29T16:32:14.027784
+	Training Loss: 0.003058 	Validation Loss: 0.002155
+
+Epoch 406 - 2019-08-29T16:33:38.056311
+	Training Loss: 0.002660 	Validation Loss: 0.001627
+	Validation loss decreased (0.001716 --> 0.001627).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 407 - 2019-08-29T16:35:03.085513
+	Training Loss: 0.002398 	Validation Loss: 0.002895
+
+Epoch 408 - 2019-08-29T16:36:27.133469
+	Training Loss: 0.003302 	Validation Loss: 0.003927
+
+Epoch 409 - 2019-08-29T16:37:51.130187
+	Training Loss: 0.002973 	Validation Loss: 0.001604
+	Validation loss decreased (0.001627 --> 0.001604).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 410 - 2019-08-29T16:39:16.160895
+	Training Loss: 0.003310 	Validation Loss: 0.001320
+	Validation loss decreased (0.001604 --> 0.001320).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 411 - 2019-08-29T16:40:41.201580
+	Training Loss: 0.002507 	Validation Loss: 0.000861
+	Validation loss decreased (0.001320 --> 0.000861).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 412 - 2019-08-29T16:42:06.211162
+	Training Loss: 0.003078 	Validation Loss: 0.003743
+
+Epoch 413 - 2019-08-29T16:43:30.247923
+	Training Loss: 0.002955 	Validation Loss: 0.001938
+
+Epoch 414 - 2019-08-29T16:44:54.252059
+	Training Loss: 0.003335 	Validation Loss: 0.001559
+
+Epoch 415 - 2019-08-29T16:46:18.249519
+	Training Loss: 0.002848 	Validation Loss: 0.001263
+
+Epoch 416 - 2019-08-29T16:47:42.236520
+	Training Loss: 0.003052 	Validation Loss: 0.000875
+
+Epoch 417 - 2019-08-29T16:49:06.244973
+	Training Loss: 0.002046 	Validation Loss: 0.001594
+
+Epoch 418 - 2019-08-29T16:50:30.264437
+	Training Loss: 0.002893 	Validation Loss: 0.001499
+
+Epoch 419 - 2019-08-29T16:51:54.302925
+	Training Loss: 0.002679 	Validation Loss: 0.000966
+
+Epoch 420 - 2019-08-29T16:53:18.342143
+	Training Loss: 0.002625 	Validation Loss: 0.000811
+	Validation loss decreased (0.000861 --> 0.000811).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 421 - 2019-08-29T16:54:43.333396
+	Training Loss: 0.002586 	Validation Loss: 0.000791
+	Validation loss decreased (0.000811 --> 0.000791).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 422 - 2019-08-29T16:56:08.347839
+	Training Loss: 0.002749 	Validation Loss: 0.000725
+	Validation loss decreased (0.000791 --> 0.000725).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 423 - 2019-08-29T16:57:33.343834
+	Training Loss: 0.002980 	Validation Loss: 0.000649
+	Validation loss decreased (0.000725 --> 0.000649).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 424 - 2019-08-29T16:58:58.352765
+	Training Loss: 0.001856 	Validation Loss: 0.000745
+
+Epoch 425 - 2019-08-29T17:00:22.380066
+	Training Loss: 0.002637 	Validation Loss: 0.000984
+
+Epoch 426 - 2019-08-29T17:01:46.378041
+	Training Loss: 0.002269 	Validation Loss: 0.001318
+
+Epoch 427 - 2019-08-29T17:03:10.343981
+	Training Loss: 0.002608 	Validation Loss: 0.000564
+	Validation loss decreased (0.000649 --> 0.000564).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 428 - 2019-08-29T17:04:35.364802
+	Training Loss: 0.001901 	Validation Loss: 0.000304
+	Validation loss decreased (0.000564 --> 0.000304).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 429 - 2019-08-29T17:06:00.395708
+	Training Loss: 0.001829 	Validation Loss: 0.000495
+
+Epoch 430 - 2019-08-29T17:07:24.438289
+	Training Loss: 0.001879 	Validation Loss: 0.000535
+
+Epoch 431 - 2019-08-29T17:08:48.451767
+	Training Loss: 0.002187 	Validation Loss: 0.000821
+
+Epoch 432 - 2019-08-29T17:10:12.436373
+	Training Loss: 0.001747 	Validation Loss: 0.000254
+	Validation loss decreased (0.000304 --> 0.000254).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 433 - 2019-08-29T17:11:37.405319
+	Training Loss: 0.002154 	Validation Loss: 0.000334
+
+Epoch 434 - 2019-08-29T17:13:01.427533
+	Training Loss: 0.002536 	Validation Loss: 0.000912
+
+Epoch 435 - 2019-08-29T17:14:25.450595
+	Training Loss: 0.002225 	Validation Loss: 0.000878
+
+Epoch 436 - 2019-08-29T17:15:49.452439
+	Training Loss: 0.002429 	Validation Loss: 0.000779
+
+Epoch 437 - 2019-08-29T17:17:13.462214
+	Training Loss: 0.002156 	Validation Loss: 0.000301
+
+Epoch 438 - 2019-08-29T17:18:37.448549
+	Training Loss: 0.001841 	Validation Loss: 0.000456
+
+Epoch 439 - 2019-08-29T17:20:01.457077
+	Training Loss: 0.001772 	Validation Loss: 0.000259
+
+Epoch 440 - 2019-08-29T17:21:25.475663
+	Training Loss: 0.002871 	Validation Loss: 0.000510
+
+Epoch 441 - 2019-08-29T17:22:49.493613
+	Training Loss: 0.002445 	Validation Loss: 0.000395
+
+Epoch 442 - 2019-08-29T17:24:13.515296
+	Training Loss: 0.001986 	Validation Loss: 0.000295
+
+Epoch 443 - 2019-08-29T17:25:37.560692
+	Training Loss: 0.002272 	Validation Loss: 0.000408
+
+Epoch 444 - 2019-08-29T17:27:01.609953
+	Training Loss: 0.001632 	Validation Loss: 0.000296
+
+Epoch 445 - 2019-08-29T17:28:25.621921
+	Training Loss: 0.001859 	Validation Loss: 0.000268
+
+Epoch 446 - 2019-08-29T17:29:49.660756
+	Training Loss: 0.002029 	Validation Loss: 0.000531
+
+Epoch 447 - 2019-08-29T17:31:13.657517
+	Training Loss: 0.001855 	Validation Loss: 0.000284
+
+Epoch 448 - 2019-08-29T17:32:37.712733
+	Training Loss: 0.001967 	Validation Loss: 0.000389
+
+Epoch 449 - 2019-08-29T17:34:01.743461
+	Training Loss: 0.001467 	Validation Loss: 0.000256
+
+Epoch 450 - 2019-08-29T17:35:25.777264
+	Training Loss: 0.001928 	Validation Loss: 0.000445
+
+Epoch 451 - 2019-08-29T17:36:49.810758
+	Training Loss: 0.001966 	Validation Loss: 0.000635
+
+Epoch 452 - 2019-08-29T17:38:13.842937
+	Training Loss: 0.001884 	Validation Loss: 0.000201
+	Validation loss decreased (0.000254 --> 0.000201).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 453 - 2019-08-29T17:39:38.837242
+	Training Loss: 0.001704 	Validation Loss: 0.000442
+
+Epoch 454 - 2019-08-29T17:41:02.862925
+	Training Loss: 0.001869 	Validation Loss: 0.000463
+
+Epoch 455 - 2019-08-29T17:42:26.835721
+	Training Loss: 0.002023 	Validation Loss: 0.000238
+
+Epoch 456 - 2019-08-29T17:43:50.826147
+	Training Loss: 0.002034 	Validation Loss: 0.000442
+
+Epoch 457 - 2019-08-29T17:45:14.845727
+	Training Loss: 0.002384 	Validation Loss: 0.000263
+
+Epoch 458 - 2019-08-29T17:46:38.818664
+	Training Loss: 0.001860 	Validation Loss: 0.000180
+	Validation loss decreased (0.000201 --> 0.000180).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 459 - 2019-08-29T17:48:03.824270
+	Training Loss: 0.001106 	Validation Loss: 0.000175
+	Validation loss decreased (0.000180 --> 0.000175).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 460 - 2019-08-29T17:49:28.913728
+	Training Loss: 0.001665 	Validation Loss: 0.000255
+
+Epoch 461 - 2019-08-29T17:50:52.894758
+	Training Loss: 0.001852 	Validation Loss: 0.000293
+
+Epoch 462 - 2019-08-29T17:52:16.877807
+	Training Loss: 0.001557 	Validation Loss: 0.000187
+
+Epoch 463 - 2019-08-29T17:53:40.894765
+	Training Loss: 0.001271 	Validation Loss: 0.000144
+	Validation loss decreased (0.000175 --> 0.000144).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 464 - 2019-08-29T17:55:05.936403
+	Training Loss: 0.001714 	Validation Loss: 0.000229
+
+Epoch 465 - 2019-08-29T17:56:29.991716
+	Training Loss: 0.001632 	Validation Loss: 0.000342
+
+Epoch 466 - 2019-08-29T17:57:54.026258
+	Training Loss: 0.001940 	Validation Loss: 0.000313
+
+Epoch 467 - 2019-08-29T17:59:18.054129
+	Training Loss: 0.001827 	Validation Loss: 0.000234
+
+Epoch 468 - 2019-08-29T18:00:42.088969
+	Training Loss: 0.001352 	Validation Loss: 0.000212
+
+Epoch 469 - 2019-08-29T18:02:06.105278
+	Training Loss: 0.001463 	Validation Loss: 0.000264
+
+Epoch 470 - 2019-08-29T18:03:30.535530
+	Training Loss: 0.001687 	Validation Loss: 0.000243
+
+Epoch 471 - 2019-08-29T18:04:54.585700
+	Training Loss: 0.001497 	Validation Loss: 0.000204
+
+Epoch 472 - 2019-08-29T18:06:18.656250
+	Training Loss: 0.001814 	Validation Loss: 0.000482
+
+Epoch 473 - 2019-08-29T18:07:42.968253
+	Training Loss: 0.001516 	Validation Loss: 0.000250
+
+Epoch 474 - 2019-08-29T18:09:07.078745
+	Training Loss: 0.001349 	Validation Loss: 0.000199
+
+Epoch 475 - 2019-08-29T18:10:31.109541
+	Training Loss: 0.001627 	Validation Loss: 0.000111
+	Validation loss decreased (0.000144 --> 0.000111).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 476 - 2019-08-29T18:11:56.155246
+	Training Loss: 0.001239 	Validation Loss: 0.000114
+
+Epoch 477 - 2019-08-29T18:13:20.237973
+	Training Loss: 0.001553 	Validation Loss: 0.000201
+
+Epoch 478 - 2019-08-29T18:14:44.275745
+	Training Loss: 0.001449 	Validation Loss: 0.000076
+	Validation loss decreased (0.000111 --> 0.000076).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 479 - 2019-08-29T18:16:09.331755
+	Training Loss: 0.001357 	Validation Loss: 0.000134
+
+Epoch 480 - 2019-08-29T18:17:33.416221
+	Training Loss: 0.001200 	Validation Loss: 0.000104
+
+Epoch 481 - 2019-08-29T18:18:57.467358
+	Training Loss: 0.001247 	Validation Loss: 0.000172
+
+Epoch 482 - 2019-08-29T18:20:21.526327
+	Training Loss: 0.001380 	Validation Loss: 0.000158
+
+Epoch 483 - 2019-08-29T18:21:45.718051
+	Training Loss: 0.001317 	Validation Loss: 0.000086
+
+Epoch 484 - 2019-08-29T18:23:09.775233
+	Training Loss: 0.001206 	Validation Loss: 0.000089
+
+Epoch 485 - 2019-08-29T18:24:33.851376
+	Training Loss: 0.001267 	Validation Loss: 0.000166
+
+Epoch 486 - 2019-08-29T18:25:58.243075
+	Training Loss: 0.001027 	Validation Loss: 0.000072
+	Validation loss decreased (0.000076 --> 0.000072).  Saving model ...
+	Saving the model in path: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+
+Epoch 487 - 2019-08-29T18:27:24.106382
+	Training Loss: 0.001106 	Validation Loss: 0.000094
+
+Epoch 488 - 2019-08-29T18:28:48.209147
+	Training Loss: 0.001285 	Validation Loss: 0.000097
+
+Epoch 489 - 2019-08-29T18:30:12.312919
+	Training Loss: 0.000936 	Validation Loss: 0.000074
+
+Epoch 490 - 2019-08-29T18:31:36.401941
+	Training Loss: 0.001113 	Validation Loss: 0.000160
+
+Epoch 491 - 2019-08-29T18:33:00.789136
+	Training Loss: 0.001296 	Validation Loss: 0.000109
+
+Epoch 492 - 2019-08-29T18:34:24.845967
+	Training Loss: 0.001145 	Validation Loss: 0.000143
+
+Epoch 493 - 2019-08-29T18:35:48.912514
+	Training Loss: 0.001182 	Validation Loss: 0.000143
+
+Epoch 494 - 2019-08-29T18:37:12.969297
+	Training Loss: 0.001179 	Validation Loss: 0.000096
+
+Epoch 495 - 2019-08-29T18:38:37.037155
+	Training Loss: 0.001002 	Validation Loss: 0.000082
+
+Epoch 496 - 2019-08-29T18:40:01.068932
+	Training Loss: 0.001322 	Validation Loss: 0.000152
+
+Epoch 497 - 2019-08-29T18:41:25.203564
+	Training Loss: 0.001261 	Validation Loss: 0.000133
+
+Epoch 498 - 2019-08-29T18:42:49.281427
+	Training Loss: 0.000992 	Validation Loss: 0.000086
+
+Epoch 499 - 2019-08-29T18:44:13.355062
+	Training Loss: 0.000951 	Validation Loss: 0.000104
+
+Epoch 500 - 2019-08-29T18:45:37.440616
+	Training Loss: 0.001475 	Validation Loss: 0.000113
+
+Training elapsed time: 11:41:59.44
+================================================
+
+================================================
+Testing started
+================================================
+Train: 5624 samples
+	Stress: 2812 (50.00%)
+	Neutral: 2812 (50.00%)
+Validation: 1386 samples
+	Stress: 693 (50.00%)
+	Neutral: 693 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+Source folder images: RGB/oversampling/
+Model: data/models/1567055102_RGB_oversampling_until_31_epochs_500_batch_32.pth
+================================================
+0/33, 
+1/33, 
+2/33, 
+3/33, 
+4/33, 
+5/33, 
+6/33, 
+7/33, 
+8/33, 
+9/33, 
+10/33, 
+11/33, 
+12/33, 
+13/33, 
+14/33, 
+15/33, 
+16/33, 
+17/33, 
+18/33, 
+19/33, 
+20/33, 
+21/33, 
+22/33, 
+23/33, 
+24/33, 
+25/33, 
+26/33, 
+27/33, 
+28/33, 
+29/33, 
+30/33, 
+31/33, 
+32/33, 
+
+Test Loss: 1.273814
+
+Test Accuracy of neutral: 53% (197/370)
+Test Accuracy of stress: 87% (799/912)
+
+Test Accuracy (Overall): 77% (996/1282)
+
+Test elapsed time: 00:02:31.21
+================================================
+================================================
+Performance metrics:
+================================================
+Confusion matrix, without normalization
+[[197 173]
+ [113 799]]
+Normalized confusion matrix
+[[0.53 0.47]
+ [0.12 0.88]]
+Precision: 0.82
+Recall: 0.88
+F-Score: 0.85
+Accuracy: 0.82
