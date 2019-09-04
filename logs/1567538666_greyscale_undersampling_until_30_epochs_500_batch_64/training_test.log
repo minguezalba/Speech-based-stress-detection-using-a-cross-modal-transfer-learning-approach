@@ -1,0 +1,20 @@
+================================================
+Source folder images: greyscale/undersampling/
+Freezing until layer: 30
+Number of epochs: 500
+Batch size: 64
+Training on GPU: True
+Do test after training: True
+================================================
+Train: 2582 samples
+	Stress: 1291 (50.00%)
+	Neutral: 1291 (50.00%)
+Validation: 664 samples
+	Stress: 332 (50.00%)
+	Neutral: 332 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+
+Epoch 1 - 2019-09-03T21:24:32.997354
