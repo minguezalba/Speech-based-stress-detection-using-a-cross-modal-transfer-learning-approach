@@ -12,22 +12,8 @@ Test: 1282 samples
 	Stress: 912 (71.14%)
 	Neutral: 370 (28.86%)
 ================================================
-
-================================================
-Testing started
-================================================
-Train: 5624 samples
-	Stress: 2812 (50.00%)
-	Neutral: 2812 (50.00%)
-Validation: 1386 samples
-	Stress: 693 (50.00%)
-	Neutral: 693 (50.00%)
-Test: 1282 samples
-	Stress: 912 (71.14%)
-	Neutral: 370 (28.86%)
-================================================
 Source folder images: greyscale/oversampling/
-Model: data/models/1567449540_greyscale_oversampling_until_30_epochs_500_batch_32.pth
+Model: data/models/1567268386_RGB_undersampling_until_30_epochs_500_batch_32.pth
 ================================================
 0/33, 
 1/33, 
@@ -63,28 +49,15 @@ Model: data/models/1567449540_greyscale_oversampling_until_30_epochs_500_batch_3
 31/33, 
 32/33, 
 
-Test Loss: 1.451731
+Test Loss: 1.684013
 
-Test Accuracy of neutral: 50% (188/370)
-Test Accuracy of stress: 86% (786/912)
+Test Accuracy of neutral: 81% (303/370)
+Test Accuracy of stress: 41% (383/912)
 
-Test Accuracy (Overall): 75% (974/1282)
+Test Accuracy (Overall): 53% (686/1282)
 
-Test elapsed time: 00:02:38.98
+Test elapsed time: 00:02:37.79
 ================================================
-================================================
-Performance metrics:
-================================================
-Confusion matrix, without normalization
-[[188 182]
- [126 786]]
-Normalized confusion matrix
-[[0.51 0.49]
- [0.14 0.86]]
-Precision: 0.81
-Recall: 0.86
-F-Score: 0.84
-Accuracy: 0.81
 
 ================================================
 Testing started
@@ -100,7 +73,7 @@ Test: 1282 samples
 	Neutral: 370 (28.86%)
 ================================================
 Source folder images: greyscale/oversampling/
-Model: data/models/1567449540_greyscale_oversampling_until_30_epochs_500_batch_32.pth
+Model: data/models/1567268386_RGB_undersampling_until_30_epochs_500_batch_32.pth
 ================================================
 0/33, 
 1/33, 
@@ -136,12 +109,12 @@ Model: data/models/1567449540_greyscale_oversampling_until_30_epochs_500_batch_3
 31/33, 
 32/33, 
 
-Test Loss: 1.451731
+Test Loss: 1.684013
 
-Test Accuracy of neutral: 50% (188/370)
-Test Accuracy of stress: 86% (786/912)
+Test Accuracy of neutral: 81% (303/370)
+Test Accuracy of stress: 41% (383/912)
 
-Test Accuracy (Overall): 75% (974/1282)
+Test Accuracy (Overall): 53% (686/1282)
 
-Test elapsed time: 00:02:34.87
+Test elapsed time: 00:02:36.11
 ================================================
