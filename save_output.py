@@ -64,5 +64,5 @@ def main_test(image_method, filepath, time_train='', logger=None):
 if __name__ == '__main__':
 
     image_method_ = 'greyscale/oversampling/'
-    filepath_ = 'data/models/1567790055_greyscale_undersampling_until_None_epochs_500_batch_32.pth'
+    filepath_ = 'data/models/1567573570_greyscale_oversampling_until_None_epochs_500_batch_32.pth'
     main_test(image_method_, filepath_)
