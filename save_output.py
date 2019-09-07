@@ -9,7 +9,10 @@ import matplotlib.pyplot as plt
 from inspect import signature
 
 
-def main_test(image_method, filepath, time_train='', logger=None):
+def main_test(filepath, time_train='', logger=None):
+
+    parts = (filepath.split('/')[-1]).split('_')
+    image_method = '/'.join((parts[1], parts[2])) + '/'
 
     if not logger:
         log_dir = f'logs/{filepath.split("/")[-1].split(".")[0]}/'
@@ -58,11 +61,10 @@ def main_test(image_method, filepath, time_train='', logger=None):
     np.savetxt(true_filename, total_true_labels, fmt='%i', delimiter=",")
 
     predicted_filename = dir_path + '/predicted.csv'
-    np.savetxt(predicted_filename, total_true_labels, fmt='%i', delimiter=",")
+    np.savetxt(predicted_filename, total_est_labels, fmt='%i', delimiter=",")
 
 
 if __name__ == '__main__':
 
-    image_method_ = 'greyscale/oversampling/'
-    filepath_ = 'data/models/1567573570_greyscale_oversampling_until_None_epochs_500_batch_32.pth'
-    main_test(image_method_, filepath_)
+    filepath_ = 'data/models/1567573702_greyscale_oversampling_until_30_epochs_500_batch_64.pth'
+    main_test(filepath_)
