@@ -16,7 +16,7 @@ def main(image_method, until_layer, n_epochs, batch_size, use_gpu, do_test, logg
                                                                     show=False,
                                                                     cuda=use_gpu)
 
-    vgg16, criterion, optimizer = vgg16_imagenet_model(use_gpu, logger, until_layer, learning_rate=0.01, verbose=False)
+    vgg16, criterion, optimizer = vgg16_imagenet_model(use_gpu, logger, until_layer, learning_rate=0.001, verbose=False)
 
     vgg16, model_path = training_validation(train_loader, valid_loader, n_epochs, vgg16, criterion, optimizer, use_gpu,
                                             dir_experiment, logger)
