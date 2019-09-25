@@ -1,0 +1,470 @@
+================================================
+Source folder images: greyscale/undersampling/
+Freezing until layer: 30
+Number of epochs: 100
+Batch size: 32
+Training on GPU: True
+Do test after training: True
+================================================
+Train: 2582 samples
+	Stress: 1291 (50.00%)
+	Neutral: 1291 (50.00%)
+Validation: 664 samples
+	Stress: 332 (50.00%)
+	Neutral: 332 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+
+Epoch 1 - 2019-09-24T09:18:08.705990
+	Training Loss: 0.193153 	Validation Loss: 1.990569
+	Validation loss decreased (inf --> 1.990569).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 2 - 2019-09-24T09:18:42.342239
+	Training Loss: 0.297069 	Validation Loss: 1.907049
+	Validation loss decreased (1.990569 --> 1.907049).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 3 - 2019-09-24T09:19:22.251453
+	Training Loss: 0.301208 	Validation Loss: 1.826834
+	Validation loss decreased (1.907049 --> 1.826834).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 4 - 2019-09-24T09:19:56.897182
+	Training Loss: 0.306946 	Validation Loss: 1.795049
+	Validation loss decreased (1.826834 --> 1.795049).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 5 - 2019-09-24T09:20:31.042390
+	Training Loss: 0.312805 	Validation Loss: 1.745034
+	Validation loss decreased (1.795049 --> 1.745034).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 6 - 2019-09-24T09:21:05.689178
+	Training Loss: 0.318679 	Validation Loss: 1.710619
+	Validation loss decreased (1.745034 --> 1.710619).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 7 - 2019-09-24T09:21:40.350266
+	Training Loss: 0.330723 	Validation Loss: 1.661009
+	Validation loss decreased (1.710619 --> 1.661009).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 8 - 2019-09-24T09:22:15.123870
+	Training Loss: 0.334332 	Validation Loss: 1.602430
+	Validation loss decreased (1.661009 --> 1.602430).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 9 - 2019-09-24T09:22:49.923147
+	Training Loss: 0.336104 	Validation Loss: 1.576789
+	Validation loss decreased (1.602430 --> 1.576789).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 10 - 2019-09-24T09:23:24.775514
+	Training Loss: 0.347213 	Validation Loss: 1.545710
+	Validation loss decreased (1.576789 --> 1.545710).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 11 - 2019-09-24T09:23:59.526095
+	Training Loss: 0.351568 	Validation Loss: 1.494332
+	Validation loss decreased (1.545710 --> 1.494332).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 12 - 2019-09-24T09:24:34.498590
+	Training Loss: 0.349894 	Validation Loss: 1.467413
+	Validation loss decreased (1.494332 --> 1.467413).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 13 - 2019-09-24T09:25:09.349969
+	Training Loss: 0.355144 	Validation Loss: 1.435172
+	Validation loss decreased (1.467413 --> 1.435172).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 14 - 2019-09-24T09:25:44.237025
+	Training Loss: 0.360150 	Validation Loss: 1.407035
+	Validation loss decreased (1.435172 --> 1.407035).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 15 - 2019-09-24T09:26:19.120557
+	Training Loss: 0.363488 	Validation Loss: 1.380410
+	Validation loss decreased (1.407035 --> 1.380410).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 16 - 2019-09-24T09:26:53.971979
+	Training Loss: 0.369155 	Validation Loss: 1.349520
+	Validation loss decreased (1.380410 --> 1.349520).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 17 - 2019-09-24T09:27:28.823201
+	Training Loss: 0.370701 	Validation Loss: 1.320503
+	Validation loss decreased (1.349520 --> 1.320503).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 18 - 2019-09-24T09:28:03.576302
+	Training Loss: 0.370233 	Validation Loss: 1.302205
+	Validation loss decreased (1.320503 --> 1.302205).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 19 - 2019-09-24T09:28:38.202094
+	Training Loss: 0.373162 	Validation Loss: 1.286699
+	Validation loss decreased (1.302205 --> 1.286699).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 20 - 2019-09-24T09:29:13.024474
+	Training Loss: 0.375571 	Validation Loss: 1.256762
+	Validation loss decreased (1.286699 --> 1.256762).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 21 - 2019-09-24T09:29:47.830882
+	Training Loss: 0.380275 	Validation Loss: 1.242536
+	Validation loss decreased (1.256762 --> 1.242536).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 22 - 2019-09-24T09:30:22.528765
+	Training Loss: 0.376691 	Validation Loss: 1.227742
+	Validation loss decreased (1.242536 --> 1.227742).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 23 - 2019-09-24T09:30:57.214189
+	Training Loss: 0.380843 	Validation Loss: 1.209742
+	Validation loss decreased (1.227742 --> 1.209742).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 24 - 2019-09-24T09:31:31.927837
+	Training Loss: 0.376968 	Validation Loss: 1.210758
+
+Epoch 25 - 2019-09-24T09:32:05.520739
+	Training Loss: 0.375073 	Validation Loss: 1.192202
+	Validation loss decreased (1.209742 --> 1.192202).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 26 - 2019-09-24T09:32:40.318886
+	Training Loss: 0.378641 	Validation Loss: 1.178156
+	Validation loss decreased (1.192202 --> 1.178156).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 27 - 2019-09-24T09:33:14.956455
+	Training Loss: 0.381601 	Validation Loss: 1.163025
+	Validation loss decreased (1.178156 --> 1.163025).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 28 - 2019-09-24T09:33:49.945215
+	Training Loss: 0.378948 	Validation Loss: 1.163585
+
+Epoch 29 - 2019-09-24T09:34:23.539119
+	Training Loss: 0.378621 	Validation Loss: 1.139566
+	Validation loss decreased (1.163025 --> 1.139566).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 30 - 2019-09-24T09:34:58.539031
+	Training Loss: 0.373971 	Validation Loss: 1.136850
+	Validation loss decreased (1.139566 --> 1.136850).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 31 - 2019-09-24T09:35:33.424173
+	Training Loss: 0.372832 	Validation Loss: 1.136332
+	Validation loss decreased (1.136850 --> 1.136332).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 32 - 2019-09-24T09:36:08.262887
+	Training Loss: 0.374498 	Validation Loss: 1.136942
+
+Epoch 33 - 2019-09-24T09:36:41.808588
+	Training Loss: 0.375341 	Validation Loss: 1.127041
+	Validation loss decreased (1.136332 --> 1.127041).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 34 - 2019-09-24T09:37:16.596536
+	Training Loss: 0.374238 	Validation Loss: 1.120944
+	Validation loss decreased (1.127041 --> 1.120944).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 35 - 2019-09-24T09:37:51.522667
+	Training Loss: 0.376695 	Validation Loss: 1.095651
+	Validation loss decreased (1.120944 --> 1.095651).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 36 - 2019-09-24T09:38:26.401161
+	Training Loss: 0.369737 	Validation Loss: 1.094009
+	Validation loss decreased (1.095651 --> 1.094009).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 37 - 2019-09-24T09:39:01.307509
+	Training Loss: 0.367261 	Validation Loss: 1.101131
+
+Epoch 38 - 2019-09-24T09:39:34.826427
+	Training Loss: 0.369002 	Validation Loss: 1.085171
+	Validation loss decreased (1.094009 --> 1.085171).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 39 - 2019-09-24T09:40:09.638733
+	Training Loss: 0.363490 	Validation Loss: 1.091470
+
+Epoch 40 - 2019-09-24T09:40:43.228199
+	Training Loss: 0.367891 	Validation Loss: 1.080162
+	Validation loss decreased (1.085171 --> 1.080162).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 41 - 2019-09-24T09:41:18.177318
+	Training Loss: 0.362513 	Validation Loss: 1.085102
+
+Epoch 42 - 2019-09-24T09:41:51.770472
+	Training Loss: 0.354906 	Validation Loss: 1.095996
+
+Epoch 43 - 2019-09-24T09:42:25.325033
+	Training Loss: 0.359695 	Validation Loss: 1.076580
+	Validation loss decreased (1.080162 --> 1.076580).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 44 - 2019-09-24T09:42:59.985579
+	Training Loss: 0.361112 	Validation Loss: 1.061454
+	Validation loss decreased (1.076580 --> 1.061454).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 45 - 2019-09-24T09:43:34.971529
+	Training Loss: 0.355665 	Validation Loss: 1.081778
+
+Epoch 46 - 2019-09-24T09:44:08.560679
+	Training Loss: 0.350262 	Validation Loss: 1.051060
+	Validation loss decreased (1.061454 --> 1.051060).  Saving model ...
+	Saving the model in path: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+
+Epoch 47 - 2019-09-24T09:44:43.331860
+	Training Loss: 0.343251 	Validation Loss: 1.074103
+
+Epoch 48 - 2019-09-24T09:45:17.004169
+	Training Loss: 0.343907 	Validation Loss: 1.069744
+
+Epoch 49 - 2019-09-24T09:45:50.605147
+	Training Loss: 0.341318 	Validation Loss: 1.091436
+
+Epoch 50 - 2019-09-24T09:46:24.197545
+	Training Loss: 0.344290 	Validation Loss: 1.086099
+
+Epoch 51 - 2019-09-24T09:46:57.794466
+	Training Loss: 0.334227 	Validation Loss: 1.089275
+
+Epoch 52 - 2019-09-24T09:47:31.445677
+	Training Loss: 0.335999 	Validation Loss: 1.086157
+
+Epoch 53 - 2019-09-24T09:48:05.091578
+	Training Loss: 0.333108 	Validation Loss: 1.079793
+
+Epoch 54 - 2019-09-24T09:48:38.750278
+	Training Loss: 0.329022 	Validation Loss: 1.077653
+
+Epoch 55 - 2019-09-24T09:49:12.328603
+	Training Loss: 0.327969 	Validation Loss: 1.071774
+
+Epoch 56 - 2019-09-24T09:49:45.966364
+	Training Loss: 0.331148 	Validation Loss: 1.079304
+
+Epoch 57 - 2019-09-24T09:50:19.644403
+	Training Loss: 0.323872 	Validation Loss: 1.076498
+
+Epoch 58 - 2019-09-24T09:50:53.304208
+	Training Loss: 0.325489 	Validation Loss: 1.077738
+
+Epoch 59 - 2019-09-24T09:51:26.881012
+	Training Loss: 0.317124 	Validation Loss: 1.069896
+
+Epoch 60 - 2019-09-24T09:52:00.553748
+	Training Loss: 0.321450 	Validation Loss: 1.078280
+
+Epoch 61 - 2019-09-24T09:52:34.168308
+	Training Loss: 0.311761 	Validation Loss: 1.084266
+
+Epoch 62 - 2019-09-24T09:53:07.805446
+	Training Loss: 0.312236 	Validation Loss: 1.089354
+
+Epoch 63 - 2019-09-24T09:53:41.412897
+	Training Loss: 0.312345 	Validation Loss: 1.067324
+
+Epoch 64 - 2019-09-24T09:54:15.073453
+	Training Loss: 0.304219 	Validation Loss: 1.055021
+
+Epoch 65 - 2019-09-24T09:54:48.702716
+	Training Loss: 0.295582 	Validation Loss: 1.074445
+
+Epoch 66 - 2019-09-24T09:55:22.242561
+	Training Loss: 0.293995 	Validation Loss: 1.084816
+
+Epoch 67 - 2019-09-24T09:55:55.827376
+	Training Loss: 0.294405 	Validation Loss: 1.068116
+
+Epoch 68 - 2019-09-24T09:56:29.469433
+	Training Loss: 0.293284 	Validation Loss: 1.096331
+
+Epoch 69 - 2019-09-24T09:57:03.071023
+	Training Loss: 0.292642 	Validation Loss: 1.063993
+
+Epoch 70 - 2019-09-24T09:57:36.726517
+	Training Loss: 0.279519 	Validation Loss: 1.073594
+
+Epoch 71 - 2019-09-24T09:58:10.289797
+	Training Loss: 0.282328 	Validation Loss: 1.090819
+
+Epoch 72 - 2019-09-24T09:58:43.909700
+	Training Loss: 0.282571 	Validation Loss: 1.090755
+
+Epoch 73 - 2019-09-24T09:59:17.540754
+	Training Loss: 0.276164 	Validation Loss: 1.098981
+
+Epoch 74 - 2019-09-24T09:59:51.132823
+	Training Loss: 0.270148 	Validation Loss: 1.102298
+
+Epoch 75 - 2019-09-24T10:00:24.763737
+	Training Loss: 0.274544 	Validation Loss: 1.096854
+
+Epoch 76 - 2019-09-24T10:00:58.365998
+	Training Loss: 0.266561 	Validation Loss: 1.069134
+
+Epoch 77 - 2019-09-24T10:01:31.921773
+	Training Loss: 0.261272 	Validation Loss: 1.114009
+
+Epoch 78 - 2019-09-24T10:02:05.512323
+	Training Loss: 0.261009 	Validation Loss: 1.104731
+
+Epoch 79 - 2019-09-24T10:02:39.188665
+	Training Loss: 0.254342 	Validation Loss: 1.103528
+
+Epoch 80 - 2019-09-24T10:03:12.801663
+	Training Loss: 0.255914 	Validation Loss: 1.128253
+
+Epoch 81 - 2019-09-24T10:03:46.453129
+	Training Loss: 0.250383 	Validation Loss: 1.124980
+
+Epoch 82 - 2019-09-24T10:04:20.000871
+	Training Loss: 0.254392 	Validation Loss: 1.128630
+
+Epoch 83 - 2019-09-24T10:04:53.640360
+	Training Loss: 0.247176 	Validation Loss: 1.127589
+
+Epoch 84 - 2019-09-24T10:05:27.298029
+	Training Loss: 0.248672 	Validation Loss: 1.130945
+
+Epoch 85 - 2019-09-24T10:06:00.878863
+	Training Loss: 0.244265 	Validation Loss: 1.122103
+
+Epoch 86 - 2019-09-24T10:06:34.437400
+	Training Loss: 0.237982 	Validation Loss: 1.127612
+
+Epoch 87 - 2019-09-24T10:07:08.053458
+	Training Loss: 0.233117 	Validation Loss: 1.131212
+
+Epoch 88 - 2019-09-24T10:07:41.680039
+	Training Loss: 0.224128 	Validation Loss: 1.113468
+
+Epoch 89 - 2019-09-24T10:08:15.231615
+	Training Loss: 0.225370 	Validation Loss: 1.122227
+
+Epoch 90 - 2019-09-24T10:08:48.880919
+	Training Loss: 0.225567 	Validation Loss: 1.164377
+
+Epoch 91 - 2019-09-24T10:09:22.486036
+	Training Loss: 0.228608 	Validation Loss: 1.123962
+
+Epoch 92 - 2019-09-24T10:09:56.040545
+	Training Loss: 0.217492 	Validation Loss: 1.109391
+
+Epoch 93 - 2019-09-24T10:10:29.692265
+	Training Loss: 0.220840 	Validation Loss: 1.136975
+
+Epoch 94 - 2019-09-24T10:11:03.404542
+	Training Loss: 0.218883 	Validation Loss: 1.136603
+
+Epoch 95 - 2019-09-24T10:11:37.019825
+	Training Loss: 0.211482 	Validation Loss: 1.139532
+
+Epoch 96 - 2019-09-24T10:12:10.627094
+	Training Loss: 0.207922 	Validation Loss: 1.116060
+
+Epoch 97 - 2019-09-24T10:12:44.261004
+	Training Loss: 0.207970 	Validation Loss: 1.156243
+
+Epoch 98 - 2019-09-24T10:13:17.873577
+	Training Loss: 0.201331 	Validation Loss: 1.116563
+
+Epoch 99 - 2019-09-24T10:13:51.487086
+	Training Loss: 0.204497 	Validation Loss: 1.138367
+
+Epoch 100 - 2019-09-24T10:14:25.110770
+	Training Loss: 0.196553 	Validation Loss: 1.168417
+
+Training elapsed time: 00:56:58.59
+================================================
+
+================================================
+Testing started
+================================================
+Train: 2582 samples
+	Stress: 1291 (50.00%)
+	Neutral: 1291 (50.00%)
+Validation: 664 samples
+	Stress: 332 (50.00%)
+	Neutral: 332 (50.00%)
+Test: 1282 samples
+	Stress: 912 (71.14%)
+	Neutral: 370 (28.86%)
+================================================
+Source folder images: greyscale/undersampling/
+Model: data/models/1569316680_greyscale_undersampling_until_30_epochs_100_batch_32.pth
+================================================
+0/33, 
+1/33, 
+2/33, 
+3/33, 
+4/33, 
+5/33, 
+6/33, 
+7/33, 
+8/33, 
+9/33, 
+10/33, 
+11/33, 
+12/33, 
+13/33, 
+14/33, 
+15/33, 
+16/33, 
+17/33, 
+18/33, 
+19/33, 
+20/33, 
+21/33, 
+22/33, 
+23/33, 
+24/33, 
+25/33, 
+26/33, 
+27/33, 
+28/33, 
+29/33, 
+30/33, 
+31/33, 
+32/33, 
+
+Test Loss: 0.670865
+
+Test Accuracy of neutral:  8% (31/370)
+Test Accuracy of stress: 98% (894/912)
+
+Test Accuracy (Overall): 72% (925/1282)
+
+Test elapsed time: 00:01:47.91
+================================================
+================================================
+Performance metrics:
+================================================
+Confusion matrix, without normalization
+[[ 31 339]
+ [ 18 894]]
+Normalized confusion matrix
+[[0.08 0.92]
+ [0.02 0.98]]
+Precision: 0.73
+Recall: 0.98
+F-Score: 0.83
+Accuracy: 0.73
